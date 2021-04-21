@@ -14,7 +14,7 @@ class DocumentModelMap { // This is where we have our own Document Object Model 
 		})
 	}
 
-	static onManagerInputtedValue(rx0) {
+	static onManagerEventMouse1Click(rx0) {
 		document.addEventListener('click', event => {
 			if (!event.target.matches('.dashboard-data-content-mousebutton1-click'))
 				return;
@@ -24,7 +24,7 @@ class DocumentModelMap { // This is where we have our own Document Object Model 
 		})
 	}
 
-	static onManagerInputtedValue(rx0) {
+	static onManagerEventMouseover(rx0) {
 		document.addEventListener('mouseover', event => {
 			if (!event.target.matches('.dashboard-data-content-hover'))
 				return;
