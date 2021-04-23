@@ -62,3 +62,15 @@ class TimetableIcicle {
 		return this.dddVectorGraphics.node()
 	}
 }
+
+let jsonShiftCellDataInput = new File('../data/json/shifts.json')
+
+class ShiftCellularTableDatum {
+	mShiftCellData = JSON.stringify(jsonShiftCellDataInput)
+
+	pairShiftData() {
+		return ddd3.pairs(this.mShiftCellData, ({x, y}) => {
+			return {date: x, time: y}
+		})
+	}
+}
