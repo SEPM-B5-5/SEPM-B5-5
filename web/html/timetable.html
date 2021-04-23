@@ -1,0 +1,31 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-6 col-sm-4">
+<!-- Rendering the HTML table w/ ES6 -->
+<script>
+let timetableHeaderStringline =
+	'<table class"table-bordered" id="hrmTable">\n\
+	<thead class="thead-dark">\n\
+	<tr>\n\
+	<td colspan="${daysOfTheWeek.length}"></td>\n\
+	</tr>\n'
+
+let timetableBodyStringline =
+	'<tbody>\n\
+	<tr>\n\
+	<td scope="row">${timeAllocatedByUser}</td>\n\
+	<td class="table-time-info"><a href="${allocatedWebpageShiftInfo}" title="${usersFullName}" data-toggle="popover" data-trigger="hover" data-content="You have been allocated a shift">${imageIconValue}</a></td>\n\
+	</td>\n\
+	</tr>\n\
+	</tbody>\n\
+	</table>\n'
+
+let timetableHtmlTableStringline = timetableHeaderStringline + timetableBodyStringline
+
+document.writeln(timetableHtmlTableStringline)
+</script>
+
+		</div>
+	</div>
+</div>
+<!-- Table string-line render w/ ES6-->

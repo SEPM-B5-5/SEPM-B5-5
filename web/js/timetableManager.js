@@ -1,5 +1,6 @@
-import * as ddd3 from "d3"
-import { format } from "d3"
+import * as ddd3 from 'd3'
+import { format } from 'd3'
+import * as nodejsddd3dom from 'jsdom'
 
 const widthOfBrowserWindowSize = screen.width
 const heightOfBrowserWindowSize = screen.height
@@ -10,34 +11,10 @@ let monthsDatum = mDateInheritor.getMonth()
 
 let daysOfTheWeek = new Array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
 
-let timetableHeaderRender =
-	'<table class"table-bordered" id="hrmTable">\n\
-	<thead class="thead-dark">\n\
-	<tr>\n\
-	<td colspan="${daysOfTheWeek.length}"></td>\n\
-	</tr>\n'
-
-let timetableBodyRender =
-	'<tbody>\n\
-	<tr>\n\
-	<td scope="row">${timeAllocatedByUser}</td>\n\
-	<td class="table-time-info"><a href="${allocatedWebpageShiftInfo}" title="${usersFullName}" data-toggle="popover" data-trigger="hover" data-content="You have been allocated a shift">${imageIconValue}</a></td>\n\
-	</td>\n\
-	</tr>\n\
-	</tbody>\n\
-	</table>\n'
-
-let timetableHtmlTableRender = timetableHeaderRender + timetableBodyRender
-
-let tableHeaderSize = 7
 let tableCellSizes = numberDaysInMonth()
 
 function numberDaysInMonth() {
 	return 32 - mDate.getDate()
-}
-
-function renderTimetableStrings() {
-	document.writeln(timetableHtmlTableRender)
 }
 
 class TimetableIcicle {

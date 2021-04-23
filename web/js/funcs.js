@@ -39,7 +39,7 @@ function inputThroughElement() {
 	var fnUserInput; // TODO(Daniel): replace this with a function of user input specific to a table cell's data.
 	var childrenArray = []; // replace this too with one of the global values.
 	let innerCellInput =document.createElement(fnUserInput);
-	let fragmentCell = document.createRange().createContextualFragment(innerCellInput); // NOTE(Daniel): maybe have this as an updating function instead?
+	/* let fragmentCell = document.createRange().createContextualFragment(innerCellInput); // NOTE(Daniel): maybe have this as an updating function instead? */
 
 	for (let index of childrenArray) {
 		if (typeof index != '')
