@@ -41,7 +41,7 @@ function numberDaysInMonth() {
 		return this.dddVectorGraphics.node()
 	}
 } */
-/* 
+/* CODE(Daniel): JSON functions for input and output
 let jsonShiftCellDataInput = new File('../data/json/shifts.json')
 
 class ShiftCellularTableDatum {
