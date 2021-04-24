@@ -71,3 +71,16 @@ function removeWorkingShift() {
 	for (let i=0; i < days; i++)
 		workingDatumCellular.deleteCell(i)
 }
+
+/* TODO(Daniel): getElementByTagName('td')
+By getting elements by their tag name, while structing the outline as:
+workingShiftCellular = getElementByTagName('tbody'),
+	Then working in a heirarchy, where we'll have getElementByTagName('td')
+		and getElementByTagName('th')
+		as a way to do generate and transform/translate data input/output.
+When doing this we structure and write it like how cells work in a table.
+Use as much of the native library, and approach this naively.
+
+Lastly the datums going into each cellular data-frame would also need-
+	-a document.innerHTML (both base document attributes and innerHTML) manipulation.
+*/
