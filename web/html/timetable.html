@@ -1,31 +1,96 @@
-<div class="container-fluid">
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Timetable</title>
+	<div class="jumbotron text-center">
+		<h1><small>Form </small>Your Shift</h1>
+		<p><i>Shift Allocation Form</i></p>
+	</div>
+
+	<a href="./index.html" class="btn btn-secondary">Return</a>
+</head>
+
+<div class="col-xs-6 col-sm-4">
+	<h2 id="staffMemberName">John Doe</h2>
+	<p>This is the Roster Calendar. <br>
+		Input your shift details here.
+	</p>
+</div>
+
+<body> <!--This is where the body is at. A comment is here serving as a code line-break-->
+<!--Code Line Break!-->
+<!--Double Code LINE BREAK!!-->
+<div class="container-fluid" id="hrm-timetable-detailer">
 	<div class="row">
 		<div class="col-xs-6 col-sm-4">
-<!-- Rendering the HTML table w/ ES6 -->
+<div class="form-group">
+	<label for="staffShiftDetailer">Staff Shift Detailer</label>
+	<input type="text" name="staffShiftDetailer" id="staffShiftDetailer" placeholder="Staff Shift Detailer" class="form-control">
+</div>
+<form action="../php/shiftAllocator.php" method="post">
+<div class="form-group">
+	<label for="timeTogotoStaff">Time</label>
+	<select name="timeTogotoStaff" id="timeTogotoStaff" class="form-control">
+		<option value="6:00AM">6:00AM (Start of Shift)</option>
+		<option value="9:00AM">9:00AM (Start of Shift)</option>
+		<option value="2:00PM">2:00PM (Start of Shift)</option>
+	</select>
+</div>
+
+<div class="form-group">
+	<label for="daysTogotoStaff">Day</label>
+	<select name="daysTogotoStaff" id="daysTogotoStaff" class="form-control">
+		<option value="Monday">Monday</option>
+		<option value="Tuesday">Tuesday</option>
+		<option value="Wednesday">Wednesday</option>
+		<option value="Thursday">Thursday</option>
+		<option value="Friday">Friday</option>
+	</select>
+</div>
+
+<div class="form-group">
+	<input class="btn btn-primary" id="allocateShiftTogotoStaff" value="Allocate Shift" onclick="emitSuccess()">
+</div>
+</form>
 <script>
-let timetableHeaderStringline =
-	'<table class"table-bordered" id="hrmTable">\n\
-	<thead class="thead-dark">\n\
-	<tr>\n\
-	<td colspan="${daysOfTheWeek.length}"></td>\n\
-	</tr>\n'
-
-let timetableBodyStringline =
-	'<tbody>\n\
-	<tr>\n\
-	<td scope="row">${timeAllocatedByUser}</td>\n\
-	<td class="table-time-info"><a href="${allocatedWebpageShiftInfo}" title="${usersFullName}" data-toggle="popover" data-trigger="hover" data-content="You have been allocated a shift">${imageIconValue}</a></td>\n\
-	</td>\n\
-	</tr>\n\
-	</tbody>\n\
-	</table>\n'
-
-let timetableHtmlTableStringline = timetableHeaderStringline + timetableBodyStringline
-
-document.writeln(timetableHtmlTableStringline)
+function onSuccess() {
+	alert("Shift Allocation Submitted")
+}
 </script>
-
 		</div>
 	</div>
 </div>
-<!-- Table string-line render w/ ES6-->
+<!--T R I P L E Code Line Break!-->
+<!--QUADRUPLE Code ... LINE BREAK!!!-->
+</body>
+
+<script>
+$(document).ready( function () {
+    $('#hrm-timetable-detailer').DataTable();
+} );
+</script>
+
+<footer>
+<!--Getting Started Bootstrap. [online] Available at: "https://getbootstrap.com/docs/3.4/getting-started/#download". [Accessed on: 19/04/21]-->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!-- D3.js CDN as script tag snippet -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<!-- DataTables -->
+<script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"></script>
+<!-- Locally made JavaScript source code -->
+<script src="../js/resourceManager.js"></script>
+<script src="../js/timetableManager.js"></script>
+</footer>
+</html>
