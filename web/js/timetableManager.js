@@ -63,7 +63,7 @@ function allocateWorkingShift() {
 	for (let i=0; i<daysInTimetableHeader[days.length]; i++) {
 		let workingDatumCellular = daysInTimetableHeader[days.length].cells[i].innerHTML
 
-		datacell = workingDatumCellular.search("<td></td>")
+		datacell = workingDatumCellular.search("shiftDatacellDivision")
 
 			if (datacell != 0 || workingDatumCellular != -1)
 				for (let j=0; j<days.length; j++)
@@ -80,7 +80,7 @@ function removeWorkingShift() {
 	for (let i=0; i<daysInTimetableHeader[days.length]; i++) {
 		let workingDatumCellular = daysInTimetableHeader[days.length].cells[i].innerHTML
 
-		datacell = workingDatumCellular.search("<td></td>")
+		datacell = workingDatumCellular.search("shiftDatacellDivision")
 
 			if (datacell != 0 || workingDatumCellular != -1)
 				for (let j=0; j<days.length; j++)
