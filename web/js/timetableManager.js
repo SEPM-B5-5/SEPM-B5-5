@@ -11,6 +11,8 @@ let monthsDatum = mDateInheritor.getMonth()
 
 let daysOfTheWeek = new Array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
 
+let periodicalCellularColumn = new Array() /* TODO(Daniel): get element of time start options */
+
 let tableCellSizes = numberDaysInMonth()
 
 function numberDaysInMonth() {
@@ -50,4 +52,22 @@ class ShiftCellularTableDatum {
 			return {date: x, time: y}
 		})
 	}
+}
+
+function allocateWorkingShift() {
+	let workingDatumCellular = document.getElementById('shiftAllocatedDatacell')
+	let days = daysOfTheWeek.length
+	/* for loop: insertCell ranging in daysOfTheWeek.length */
+	for (let i=0; i < days.length; i++)
+		workingDatumCellular.insertCell(i)
+	/*  */
+	workingDatumCellular = document.getElementById('#hrm-timetable-detailer').innerHTML
+}
+
+function removeWorkingShift() {
+	let workingDatumCellular = document.getElementById('shiftAllocatedDatacell')
+	let days = daysOfTheWeek.length
+	/* for loop: insertCell ranging in daysOfTheWeek.length */
+	for (let i=0; i < days; i++)
+		workingDatumCellular.deleteCell(i)
 }
