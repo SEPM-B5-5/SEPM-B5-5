@@ -18,13 +18,13 @@ let tableCellSizes = numberDaysInMonth()
 function numberDaysInMonth() {
 	return 32 - mDate.getDate()
 }
-
-class TimetableIcicle {
+// NOTE(Daniel): was going to use D3.js to make life easier, but a naive approach was recommended
+/* class TimetableIcicle {
 	dddVectorGraphics = ddd3.create('svg').attr('viewBox', [0, 0, widthOfBrowserWindowSize, heightOfBrowserWindowSize * numberDaysInMonth()])
 
 	dataCellularOfTimetable = dddVectorGraphics.selectAll('g').data(daysOfTheWeek).join('g').attr('transform', (n) => `translate(${widthOfBrowserWindowSize}, ${heightOfBrowserWindowSize*n+tableCellSizes*1.0})`)
 
-	textOfDataCellular = dataCellularOfTimetable.filter().append('text').attr(computeWidthOfCellSize()/* TODO */).attr(computeHeightOfCellSize()/* TODO */)
+	textOfDataCellular = dataCellularOfTimetable.filter().append('text').attr(computeWidthOfCellSize()).attr(computeHeightOfCellSize())
 
 	setDataCellular() {
 		this.dataCellularOfTimetable.append('rect').attr(widthOfBrowserWindowSize).attr(heightOfBrowserWindowSize)
@@ -34,14 +34,14 @@ class TimetableIcicle {
 	setTextofDataCellular() {
 		this.textOfDataCellular.append('tspan').text(staffMemberAccount.name)
 
-		this.textOfDataCellular.text(format(cellularDataValue.value/* TODO */))
+		this.textOfDataCellular.text(format(cellularDataValue.value))
 	}
 
 	getDddVectorGraphicsNode() {
 		return this.dddVectorGraphics.node()
 	}
-}
-
+} */
+/* 
 let jsonShiftCellDataInput = new File('../data/json/shifts.json')
 
 class ShiftCellularTableDatum {
@@ -52,24 +52,40 @@ class ShiftCellularTableDatum {
 			return {date: x, time: y}
 		})
 	}
-}
+} */
 
 function allocateWorkingShift() {
-	let workingDatumCellular = document.getElementById('shiftAllocatedDatacell')
+	let timetableHeader = document.getElementById('dayOfTheWeek')
+	let daysInTimetableHeader = timetableHeader.rows
+	/* let workingDatumCellular = document.getElementById('shiftDatacellDivision') */
 	let days = daysOfTheWeek.length
 	/* for loop: insertCell ranging in daysOfTheWeek.length */
-	for (let i=0; i < days.length; i++)
-		workingDatumCellular.insertCell(i)
-	/*  */
-	workingDatumCellular = document.getElementById('#hrm-timetable-detailer').innerHTML
+	for (let i=0; i<daysInTimetableHeader[days.length]; i++) {
+		let workingDatumCellular = daysInTimetableHeader[days.length].cells[i].innerHTML
+
+		datacell = workingDatumCellular.search("<td></td>")
+
+			if (datacell != 0 || workingDatumCellular != -1)
+				for (let j=0; j<days.length; j++)
+					workingDatumCellular.insertCell(i)
+	} /* workingDatumCellular = document.getElementById('#hrm-timetable-detailer').innerHTML */
 }
 
 function removeWorkingShift() {
-	let workingDatumCellular = document.getElementById('shiftAllocatedDatacell')
+	let timetableHeader = document.getElementById('dayOfTheWeek')
+	let daysInTimetableHeader = timetableHeader.rows
+	/* let workingDatumCellular = document.getElementById('shiftDatacellDivision') */
 	let days = daysOfTheWeek.length
 	/* for loop: insertCell ranging in daysOfTheWeek.length */
-	for (let i=0; i < days; i++)
-		workingDatumCellular.deleteCell(i)
+	for (let i=0; i<daysInTimetableHeader[days.length]; i++) {
+		let workingDatumCellular = daysInTimetableHeader[days.length].cells[i].innerHTML
+
+		datacell = workingDatumCellular.search("<td></td>")
+
+			if (datacell != 0 || workingDatumCellular != -1)
+				for (let j=0; j<days.length; j++)
+					workingDatumCellular.deleteCell(i)
+	} // NOTE(Daniel): have a returning value?
 }
 
 /* TODO(Daniel): getElementByTagName('td')

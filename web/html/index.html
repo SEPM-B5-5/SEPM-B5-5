@@ -27,7 +27,7 @@
 <!--Double Code LINE BREAK!!-->
 		<div class="col-xs-6 col-sm-4">
 <!-- Rendering the HTML table w/ D3.js -->
-<table class="display" id="hrm-timetable">
+<table class="table table-bordered table-striped" id="hrm-timetable">
 	<thead>
 		<tr>
 			<th scope="col" id="dayOfTheWeek">Monday</th>
@@ -36,9 +36,11 @@
 
 	<tbody>
 		<tr>
-			<th scope="col" id="dailyShiftDetails">
-				<a href="./timetable.html" data-toggle="popover" data-content="Monday 9:00AM - 5:00PM" title="John Doe">S H I F T</a>
-			</th>
+			<div class="popover" id="shiftDatacellDivision">
+				<th scope="col" id="dailyShiftDetails">
+					<td><a href="#" id="shiftDatacellHrefers" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="bottom" title="John Doe">S H I F T</a></td>
+				</th>
+			</div>
 		</tr>
 	</tbody>
 </table>
@@ -54,7 +56,9 @@
 /* ... */
 $(function(){ // Equivalent to: $(document).ready(function({}))
 // ,,...''
-$('[data-toggle="popover"]').popover();
+$('[data-toggle="popover"]').popover({
+	content: '<button class="btn btn-success" id="gotoShiftAllocatorButton"><a href="./timetable.html">Allocate</a></button><button type="button" class="btn btn-danger" id="removeWorkingShiftButton" onclick="removeWorkingShift()">Remove</button>'
+});
 // ,,...''
 })
 /* ,,...'' */
