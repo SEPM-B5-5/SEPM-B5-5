@@ -1,3 +1,5 @@
+package hrm.classes.User;
+
 public class User {
 	public String username;
 	public String password;
