@@ -9,11 +9,11 @@ import io.javalin.http.Handler;
 import org.jetbrains.annotations.NotNull;
 
 public class WorkshiftRosterController {
-	public static String URL = "/resources/html/roster.html";
+	public static String URL = "html/roster.html";
 
 	public static Handler rosterRetval = context -> {
 		static Map<String, Object> model = ViewModelUtil.baseModel(context);
-		model.put("roster", attrWorkshiftRoster(context));
+		model.put("workshiftRoster", attrWorkshiftRoster(context));
 		context.render(URL, model);
 	};
 }

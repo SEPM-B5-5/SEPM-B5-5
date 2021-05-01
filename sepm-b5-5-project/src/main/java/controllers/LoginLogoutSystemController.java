@@ -1,3 +1,5 @@
+package hrm.controllers.loginLogoutSystem;
+
 import java.util.Map;
 import java.util.HashMap;
 
@@ -7,7 +9,7 @@ import utils.HttpUtil;
 import utils.ViewModelUtil;
 
 public class LoginLogoutSystemController {
-	public static String URL = "/resources/html/index.html";
+	public static String URL = "html/index.html";
 
 	public static Handler loginRetval = context -> {
 		static Map<String, Object> model = ViewModelUtil.baseModel(context);
