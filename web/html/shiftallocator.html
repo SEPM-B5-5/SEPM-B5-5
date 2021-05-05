@@ -8,7 +8,7 @@
 	<title>Timetable</title>
 	<div class="jumbotron text-center">
 		<h1><small>Form </small>Your Shift</h1>
-		<p><i>Shift Allocation Table</i></p>
+		<p><i>Shift Allocation Form</i></p>
 	</div>
 
 	<a href="./index.html" class="btn btn-secondary">Return</a>
@@ -25,14 +25,45 @@
 <!--Code Line Break!-->
 <!--Double Code LINE BREAK!!-->
 <div class="container-fluid" id="hrm-timetable-detailer">
-	<table class="table">
-		<tr>
-			<th>
+	<div class="row">
+		<div class="col-xs-6 col-sm-4">
+<div class="form-group">
+	<label for="staffShiftDetailer">Staff Shift Detailer</label>
+	<input type="text" name="staffShiftDetailer" id="staffShiftDetailer" placeholder="Staff Shift Detailer" class="form-control">
+</div>
+<form action="../php/shiftAllocator.php" method="post">
+<div class="form-group">
+	<label for="timeTogotoStaff">Time</label>
+	<select name="timeTogotoStaff" id="timeTogotoStaff" class="form-control">
+		<option value="6:00AM">6:00AM (Start of Shift)</option>
+		<option value="9:00AM">9:00AM (Start of Shift)</option>
+		<option value="2:00PM">2:00PM (Start of Shift)</option>
+	</select>
+</div>
 
-			</th>
-		</tr>
-	</table>
-<div>
+<div class="form-group">
+	<label for="daysTogotoStaff">Day</label>
+	<select name="daysTogotoStaff" id="daysTogotoStaff" class="form-control">
+		<option value="Monday">Monday</option>
+		<option value="Tuesday">Tuesday</option>
+		<option value="Wednesday">Wednesday</option>
+		<option value="Thursday">Thursday</option>
+		<option value="Friday">Friday</option>
+	</select>
+</div>
+
+<div class="form-group">
+	<input class="btn btn-primary" id="allocateShiftTogotoStaff" value="Allocate Shift" onclick="allocateWorkingShift()">
+</div>
+</form>
+<script>
+function onSuccess() {
+	alert("Shift Allocation Submitted")
+}
+</script>
+		</div>
+	</div>
+</div>
 <!--T R I P L E Code Line Break!-->
 <!--QUADRUPLE Code ... LINE BREAK!!!-->
 </body>
@@ -53,3 +84,4 @@
 <script src="../js/timetableManager.js"></script>
 </footer>
 </html>
+

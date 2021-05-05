@@ -16,34 +16,22 @@
 <div class="container-fluid" id="hrm-calendar">
 	<div class="row">
 		<div class="col-xs-6 col-sm-4">
-	<h2>Welcome to the company Shift Roster (Calendar) Manager</h2>
-	<p>This is the Roster Calendar. <br>
-		Here you will find what shifts you've been allocated to, <br>
-		be able to read information about your shifts, <br>
-		and be able to manage your work schedule.
+	<h2>Welcome to the company Shift Roster (Calendar) Manager Home Page</h2>
+	<p>This is the the home page. <br>
+		From here you can choose where to go from here, by choosing either one of the buttons (below).
 	</p>
 		</div>
 <!--Code Line Break!-->
 <!--Double Code LINE BREAK!!-->
 		<div class="col-xs-6 col-sm-4">
 <!-- Rendering the HTML table w/ D3.js -->
-<table class="table table-bordered table-striped" id="hrm-timetable">
-	<thead>
-		<tr>
-			<th scope="col" id="dayOfTheWeek">Monday</th>
-		</tr>
-	</thead>
+<a href="shiftallocator.html" class="btn btn-primary" id="shiftAllocatorHtml">Allocate Workshifts</a>
+<!---->
+		</div>
 
-	<tbody>
-		<tr>
-			<div class="popover" id="shiftDatacellDivision">
-				<th scope="col" id="dailyShiftDetails">
-					<td><a href="#" id="shiftDatacellHrefers" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="bottom" title="John Doe">S H I F T</a></td>
-				</th>
-			</div>
-		</tr>
-	</tbody>
-</table>
+		<div class="col-xs-6 col-sm-4">
+<!-- Rendering the HTML table w/ D3.js -->
+<a href="timetable.html" class="btn btn-primary" id="timetableHtml">View Workshift Table</a>
 <!---->
 		</div>
 	</div>
@@ -51,24 +39,7 @@
 <!--T R I P L E Code Line Break!-->
 <!--QUADRUPLE Code ... LINE BREAK!!!-->
 </body>
-
-<script>
-/* ... */
-$(function(){ // Equivalent to: $(document).ready(function({}))
-// ,,...''
-$('[data-toggle="popover"]').popover({
-	content: '<button class="btn btn-success" id="gotoShiftAllocatorButton"><a href="./timetable.html">Allocate</a></button><button type="button" class="btn btn-danger" id="removeWorkingShiftButton" onclick="removeWorkingShift()">Remove</button>'
-});
-// ,,...''
-})
-/* ,,...'' */
-</script>
 <!---->
-<script>
-$(document).ready( function () {
-	$('#hrm-timetable-detailer').DataTable();
-} );
-</script>
 <!---->
 <footer>
 <!--Getting Started Bootstrap. [online] Available at: "https://getbootstrap.com/docs/3.4/getting-started/#download". [Accessed on: 19/04/21]-->
@@ -78,10 +49,6 @@ $(document).ready( function () {
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-<!-- development version, includes helpful console warnings -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-<!-- D3.js CDN as script tag snippet -->
-<script src="https://d3js.org/d3.v6.min.js"></script>
 <!-- DataTables -->
 <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"></script>

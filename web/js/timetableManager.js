@@ -1,13 +1,10 @@
-import * as ddd3 from 'd3'
-import { format } from 'd3'
-import * as nodejsddd3dom from 'jsdom'
-
 const widthOfBrowserWindowSize = screen.width
 const heightOfBrowserWindowSize = screen.height
 
 let mDateInheritor = new Date()
 let daysDatum = mDateInheritor.getDay()
 let monthsDatum = mDateInheritor.getMonth()
+let yearDatum = mDateInheritor.getFullYear()
 
 let daysOfTheWeek = new Array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
 
@@ -15,9 +12,24 @@ let periodicalCellularColumn = new Array() /* TODO(Daniel): get element of time 
 
 let tableCellSizes = numberDaysInMonth()
 
+class WeeklyCalendar {
+	static computeRangeOfMonth() {
+		const todaysDate = new Date(yearDatum, monthsDatum, daysDatum)
+	
+		const startingMinimum = new Date(todaysDate)
+		startingMinimum.setMonth(startingMinimum.getMonth())
+		startingMinimum.setDate(7) // range it within 7 days a week.
+	
+		const startingMaximum = new Date(todaysDate)
+		startingMaximum.setMonth(startingMaximum.getMonth())
+		startingMaximum.setDate(7)
+	}
+}
+
 function numberDaysInMonth() {
 	return 32 - mDate.getDate()
 }
+
 // NOTE(Daniel): was going to use D3.js to make life easier, but a naive approach was recommended
 /* class TimetableIcicle {
 	dddVectorGraphics = ddd3.create('svg').attr('viewBox', [0, 0, widthOfBrowserWindowSize, heightOfBrowserWindowSize * numberDaysInMonth()])
