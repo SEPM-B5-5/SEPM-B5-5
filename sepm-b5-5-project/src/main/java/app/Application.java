@@ -19,14 +19,14 @@ public class Application {
 		}).start(7000);
         app.get("/", ctx -> ctx.result("Hello World"));
 
-		JavalinRenderer.register(".html");
+		/*JavalinRenderer.register(".html");*/
 
 		route(app);
     }
 
 	public static void route(Javalin app) {
 		app.get("/login", context -> {
-			context.render("/html/login.html", utils.viewModelUtil.ViewModelUtil.baseModel(context));
+			context.render("/html/login.html", utils.ViewModelUtil.baseModel(context));
 		});
 
 		app.get("/workshiftRoster", (Handler) new WorkshiftRosterController());

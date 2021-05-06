@@ -9,10 +9,10 @@ public class ShiftAllocate {
 		this.shiftAllocation = shiftAllocation;
 	}
 
-	public ShiftAllocate getShiftAllocation(String shiftAllocData) {
-		String allocatedMember = this.allocatedMember;
-		String shiftAllocation = this.shiftAllocation;
+	public ShiftAllocate getShiftAllocation(String mUser, String shiftAllocData) {
+		mUser = this.allocatedMember;
+		shiftAllocData = this.shiftAllocation;
 
-		return ShiftAllocate(allocatedMember, shiftAllocation);
+		return new ShiftAllocate(mUser, shiftAllocData);
 	}
 }

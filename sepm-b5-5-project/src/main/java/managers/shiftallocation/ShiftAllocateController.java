@@ -13,7 +13,7 @@ import static utils.HttpUtil.attrShiftAllocation;
 
 public class ShiftAllocateController {
 	public static Handler shiftAlloc = context -> {
-		static Map<String, Object> model = new ViewUtil.baseModel(context);
+		Map<String, Object> model = ViewModelUtil.baseModel(context);
 		model.put("/allocator", attrShiftAllocation(context));
 		context.render("html/allocator.html", model);
 	};
