@@ -1,4 +1,4 @@
-package hrm.managers.shiftallocation;
+package managers.shiftallocation;
 
 import utils.HttpUtil;
 import utils.ViewModelUtil;
@@ -8,6 +8,8 @@ import java.util.HashMap;
 
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
+
+import static utils.HttpUtil.attrShiftAllocation;
 
 public class ShiftAllocateController {
 	public static Handler shiftAlloc = context -> {

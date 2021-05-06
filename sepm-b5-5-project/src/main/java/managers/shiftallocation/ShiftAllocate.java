@@ -1,4 +1,4 @@
-package hrm.managers.shiftallocation;
+package managers.shiftallocation;
 
 public class ShiftAllocate {
 	public String allocatedMember;

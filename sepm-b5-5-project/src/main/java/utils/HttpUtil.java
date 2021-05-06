@@ -1,4 +1,4 @@
-package hrm.utils.httpUtil;
+package utils;
 
 import io.javalin.http.Context;
 
@@ -16,6 +16,12 @@ public class HttpUtil {
 	public static String attrWorkshiftRoster(Context context) {
 		String roster = context.sessionAttribute("workshiftRoster");
 		context.sessionAttribute("workshiftRoster", null);
+		return roster;
+	}
+
+	public static String attrShiftAllocation(Context context) {
+		String roster = context.sessionAttribute("shiftAllocation");
+		context.sessionAttribute("shiftAllocation", null);
 		return roster;
 	}
 }

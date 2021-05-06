@@ -1,4 +1,4 @@
-package hrm.data.priority;
+package data;
 
 public enum PriorityData {
 	HUMAN_RESOURCES_MANAGER,

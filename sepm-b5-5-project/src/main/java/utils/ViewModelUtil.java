@@ -1,4 +1,4 @@
-package hrm.utils.viewModelUtil;
+package utils;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import io.javalin.http.Context;
 import io.javalin.http.ErrorHandler;
 
-import static hrm.utils.HttpUtil.*;
+import static utils.HttpUtil.getResourcePage;
 
 public class ViewModelUtil {
 	public static Map<String, Object> baseModel(Context context) {

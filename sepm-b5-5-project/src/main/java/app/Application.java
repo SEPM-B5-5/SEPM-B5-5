@@ -1,10 +1,11 @@
 package app;
 
-import hrm.controllers.workshiftRoster;
-import hrm.controllers.loginLogoutSystem;
-import hrm.managers.shiftallocation;
-import hrm.data.priority;
-import hrm.data.user;
+import controllers.workshiftRoster.*;
+import controllers.LoginLogoutSystemController;
+import io.javalin.http.Handler;
+import managers.shiftallocation.*;
+import data.PriorityData;
+import data.UserData;
 
 import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
@@ -25,10 +26,10 @@ public class Application {
 
 	public static void route(Javalin app) {
 		app.get("/login", context -> {
-			context.render("/html/login.html", ViewModelUtil.baseModel(context));
+			context.render("/html/login.html", utils.viewModelUtil.ViewModelUtil.baseModel(context));
 		});
 
-		app.get("/workshiftRoster", new WorkshiftRosterController());
+		app.get("/workshiftRoster", (Handler) new WorkshiftRosterController());
 		app.get("/workshiftRoster/:id", new WorkshiftRosterUpdateController());
 	}
 }

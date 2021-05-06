@@ -1,16 +1,18 @@
-package hrm.data.user;
+package data;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import hrm.classes.User;
+import classes.User;
 
 public class UserData {
-	public List<User> user = ImmutableList.of(
+	List<User> userList;
+
+	public List<User> user = List.of(
 		new User("johndoe", "password123")
 	);
 
-	@Override
 	public User getUsername(String username) {
 		return user.stream()
 			.filter(u -> u.username.equals(username))

@@ -1,4 +1,4 @@
-package hrm.classes.user;
+package classes;
 
 public class User {
 	public String username;
@@ -9,16 +9,16 @@ public class User {
 		this.password = password;
 	}
 
-	public User getUsername(String username) {
+	public String getUsername(String username) {
 		return this.username;
 	}
 
-	public User getPassword(String password) {
+	public String getPassword(String password) {
 		return this.password;
 	}
 
 	public void setUsername(String username) {
-		this.name = name;
+		this.username = username;
 	}
 
 	public void setPassword(String password) {

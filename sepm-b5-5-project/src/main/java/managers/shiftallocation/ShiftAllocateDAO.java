@@ -1,18 +1,21 @@
-package hrm.managers.shiftallocation;
+package managers.shiftallocation;
 
 import java.sql.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import hrm.managers.ShiftAllocate;
+import classes.User;
+import managers.shiftallocation.*;
 
 public class ShiftAllocateDAO {
-	public List<Shift> shift = ImmutableList.of(
-		new Shift(user, allocatedShift)
+	String user;
+	String allocatedShift;
+
+	public List<Workshift> shift = ImmutableList.of(
+		new ShiftAllocate(user, allocatedShift)
 	);
 
-	@Override
 	public User getShiftAllocation(String shiftAllocData) {
 		return shift.stream()
 			.filter(s -> s.allocatedMember.equals(shiftAllocData))
