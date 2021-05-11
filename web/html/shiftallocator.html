@@ -53,13 +53,19 @@
 </div>
 
 <div class="form-group">
-	<input class="btn btn-primary" id="allocateShiftTogotoStaff" value="Allocate Shift" onclick="allocateWorkingShift()">
+	<button id="allocate-workshift-button">Allocate Workshift</button>
 </div>
 </form>
 <script>
-function onSuccess() {
-	alert("Shift Allocation Submitted")
-}
+$(document).ready( function () {
+	$('#allocate-workshift-button').on('click', function () {
+		hrmmWorkshiftInstval.row.add([
+
+		]).draw(false);
+
+		datacell++;
+	});
+});
 </script>
 		</div>
 	</div>
