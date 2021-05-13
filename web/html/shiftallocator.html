@@ -58,12 +58,15 @@
 </form>
 <script>
 $(document).ready( function () {
+	var datacellItem = Document.getElementById('datacellItem')
+	var userInputtedValued = hrmmWorkshiftInstval.$('input, select').serialize();
+
 	$('#allocate-workshift-button').on('click', function () {
 		hrmmWorkshiftInstval.row.add([
-
+			datacellItem + userInputtedValues
 		]).draw(false);
 
-		datacell++;
+		datacellItem++;
 	});
 });
 </script>
