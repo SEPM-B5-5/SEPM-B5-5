@@ -48,6 +48,22 @@
 			searching: false,
 			select: true
 		});
+
+		var additionalDatum = {
+			staffShiftSurname : {daysOfAllocation, timeForStaff}
+		}
+
+		function passingObjectDataProc() {
+			var datacellRetval = localStorage['mPassingObjectData']
+			localStorage.removeItem('mPassingObjectData')
+			additionalDatum.staffShiftSurname = datacellRetval.staffShiftSurname
+			additionalDatum.daysOfAllocation = datacellRetval.daysOfAllocation
+			additionalDatum.timeForStaff = datacellRetval.timeForStaff
+		}
+
+		window.onload = function () {
+			passingObjectDataProc()
+		} // "Transfer data from one HTML file to another", [Accessed on: 13 May 2021] [Available at: https://stackoverflow.com/questions/17502071/transfer-data-from-one-html-file-to-another]
 	
 		$('#remove-workshift-button').click( function () {
 			table.row('.active').remove().draw(false);
