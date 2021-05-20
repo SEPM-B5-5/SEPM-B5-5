@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="sepm-b5-5-project" target="1.8" />
+      <module name="sepm-b5-5-project.main" target="1.8" />
+      <module name="sepm-b5-5-project.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
