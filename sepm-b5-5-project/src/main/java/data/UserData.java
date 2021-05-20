@@ -1,6 +1,8 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,8 +11,8 @@ import classes.User;
 public class UserData {
 	List<User> userList;
 
-	public List<User> user = List.of(
-		new User("johndoe", "password123")
+	public List<User> user = Collections.singletonList(
+			new User("johndoe", "password123")
 	);
 
 	public User getUsername(String username) {
