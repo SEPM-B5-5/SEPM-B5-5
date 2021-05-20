@@ -51,7 +51,8 @@ test {
 
 flyway {
     url = 'jdbc:h2:file:./sepm-b5-5-project/src/main/resources/db.migration'
-    user = 'admin'
+    user = 'b55'
+    password = 'sepmsem12021'
 }
 
 apply plugin: 'java'
