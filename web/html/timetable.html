@@ -42,48 +42,30 @@
 		</tr>
 	</tbody>
 </table>
-
-<script>
-$(document).ready( function () {
-	var hrmmWorshiftInstval = $('#hrm-roster-calendar').DataTable({
-			ordering: false,
-			searching: false,
-			select: true
-	});
-	
-	var staffShiftSurname = document.getElementById('staff-shift-surname').value
-	var daysOfAllocation = document.getElementById('days-of-allocation').value
-	var timeForStaff = document.getElementById('time-for-staff').value // these values can be transformed with JavalinIO's ,,.formParams()'' function.
-
-	var additionalDatum = {
-		staffShiftSurname : {daysOfAllocation, timeForStaff}
-	} // have the values act as tuple-like objects to pass into ,,localStorage'' or ,,sessionStorage''
-	// push all these other values into a tuple-list or so.
-	var userInputtedValues = hrmmWorkshiftInstval.$('input, select').serialize(); // <- DataTables API
-
-	var rowIndex = hrmmWorshiftInstval.row
-	var cellIndex = hrmmWorshiftInstval.cell
-
-	$('#allocate-workshift-button').on('click', function () {
-		hrmmWorkshiftInstval.row.add([
-			cellIndex + additionalDatum + userInputtedValues
-		]).draw(false);
-
-		cellIndex++;
-	});
-	// "Transfer data from one HTML file to another", [Accessed on: 13 May 2021] [online] Available at: https://stackoverflow.com/questions/17502071/transfer-data-from-one-html-file-to-another
-	var datacellInformation = "http://views/html/timetable.html?surname=" + encodeURIComponent(staffShiftSurname) +
-		"?date=" + encodeURIComponent(daysOfAllocation) +
-			"?time=" + encodeURIComponent(timeForStaff)
-
-	localStorage.setItem('mPassingObjectData', additionalDatum)
-
-	document.location.href = datacellInformation // NOTE(Daniel): JSON.stringify(datacellRetval)|>.parse(datacellRetval).keyIndex0..keyIndex8?
-}); // "How to pass data from one page to another page html", [Accessed on: 13 May 2021], [online] Available at: https://stackoverflow.com/questions/36599781/how-to-pass-data-from-one-page-to-another-page-html?noredirect=1&lq=1
-</script>
 		</div>
 	</div>
 </div>
+
+<form class="form-group" action="../php/shiftAllocator.php" method="post">
+
+	<label for="time-for-staff">Time</label>
+	<select name="time-for-staff" id="time-for-staff" class="form-control">
+		<option value="6:00AM">6:00AM (Start of Shift)</option>
+		<option value="9:00AM">9:00AM (Start of Shift)</option>
+		<option value="2:00PM">2:00PM (Start of Shift)</option>
+	</select>
+
+	<label for="days-of-allocation">Day</label>
+	<select name="days-of-allocation" id="days-of-allocation" class="form-control">
+		<option value="Monday">Monday</option>
+		<option value="Tuesday">Tuesday</option>
+		<option value="Wednesday">Wednesday</option>
+		<option value="Thursday">Thursday</option>
+		<option value="Friday">Friday</option>
+	</select>
+
+	<button id="allocate-shift-button">Allocate Workshift</button>
+</form>
 <!--T R I P L E Code Line Break!-->
 <!--QUADRUPLE Code ... LINE BREAK!!!-->
 </body>
@@ -105,3 +87,42 @@ $(document).ready( function () {
 <script src="../js/timetableManager.js"></script>
 </footer>
 </html>
+
+<script>
+	$(document).ready( function () {
+		var hrmmWorshiftInstval = $('#hrm-roster-calendar').DataTable({
+				ordering: true,
+				searching: false,
+				select: true
+		})
+		
+		var staffShiftSurname = document.getElementById('staff-shift-surname').value
+		var daysOfAllocation = document.getElementById('days-of-allocation').value
+		var timeForStaff = document.getElementById('time-for-staff').value // these values can be transformed with JavalinIO's ,,.formParams()'' function.
+	
+		var additionalDatum = {
+			staffShiftSurname : {daysOfAllocation, timeForStaff}
+		} // have the values act as tuple-like objects to pass into ,,localStorage'' or ,,sessionStorage''
+		// push all these other values into a tuple-list or so.
+		var userInputtedValues = hrmmWorkshiftInstval.$('input, select').serialize() // <- DataTables API
+	
+		var rowIndex = hrmmWorshiftInstval.row
+		var cellIndex = hrmmWorshiftInstval.cell
+	
+		$('#allocate-shift-button').on('click', function () {
+			hrmmWorkshiftInstval.row.add([
+				cellIndex + additionalDatum + userInputtedValues
+			]).draw(false)
+	
+			cellIndex++
+		})
+		// "Transfer data from one HTML file to another", [Accessed on: 13 May 2021] [online] Available at: https://stackoverflow.com/questions/17502071/transfer-data-from-one-html-file-to-another
+		var datacellInformation = "http://views/html/timetable.html?surname=" + encodeURIComponent(staffShiftSurname) +
+			"?date=" + encodeURIComponent(daysOfAllocation) +
+				"?time=" + encodeURIComponent(timeForStaff)
+	
+		localStorage.setItem('mPassingObjectData', additionalDatum)
+	
+		document.location.href = datacellInformation // NOTE(Daniel): JSON.stringify(datacellRetval)|>.parse(datacellRetval).keyIndex0..keyIndex8?
+	}); // "How to pass data from one page to another page html", [Accessed on: 13 May 2021], [online] Available at: https://stackoverflow.com/questions/36599781/how-to-pass-data-from-one-page-to-another-page-html?noredirect=1&lq=1
+</script>
