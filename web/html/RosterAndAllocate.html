@@ -46,6 +46,8 @@
 	</div>
 </div>
 
+<button id="remove-shift-button">Remove Shift</button>
+
 <form class="form-group" action="../php/shiftAllocator.php" method="post">
 
 	<label for="time-for-staff">Time</label>
@@ -90,7 +92,7 @@
 
 <script>
 	$(document).ready( function () {
-		var hrmmWorshiftInstval = $('#hrm-roster-calendar').DataTable({
+		var rosterCalendar = $('#hrm-roster-calendar').DataTable({
 				ordering: true,
 				searching: false,
 				select: true
@@ -104,18 +106,38 @@
 			staffShiftSurname : {daysOfAllocation, timeForStaff}
 		} // have the values act as tuple-like objects to pass into ,,localStorage'' or ,,sessionStorage''
 		// push all these other values into a tuple-list or so.
-		var userInputtedValues = hrmmWorkshiftInstval.$('input, select').serialize() // <- DataTables API
+		var userInputtedValues = rosterCalendar.$('input, select').serialize() // <- DataTables API
 	
-		var rowIndex = hrmmWorshiftInstval.row
-		var cellIndex = hrmmWorshiftInstval.cell
-	
+		var rowIndex = rosterCalendar.row
+		var cellIndex = rosterCalendar.cell
+		// shift allocation button for form
 		$('#allocate-shift-button').on('click', function () {
-			hrmmWorkshiftInstval.row.add([
+			rosterCalendar.row.add([
 				cellIndex + additionalDatum + userInputtedValues
 			]).draw(false)
 	
 			cellIndex++
 		})
+
+		$('#allocate-shift-button').click()
+		// highlight table body cells
+		$('#hrm-roster-calendar tbody').on('mouseenter', 'td', function () {
+			var columnIndex = rosterCalendar.cell(this).index().column
+
+			$(rosterCalendar.cells().nodes().removeClass('highlight'))
+			$(rosterCalendar.column(columnIndex).nodes().addClass('highlight'))
+
+			if ($(this).hasClass('active'))
+				$(this).removeClass('active')
+
+			else {
+				rosterCalendar.$('tr.active').removeClass('active')
+				$(this).addClass('active')
+			}
+		})
+		
+		$('#remove-shift-button').click(function () {rosterCalendar.row('.active').remove().draw(false)})
+		//
 		// "Transfer data from one HTML file to another", [Accessed on: 13 May 2021] [online] Available at: https://stackoverflow.com/questions/17502071/transfer-data-from-one-html-file-to-another
 		var datacellInformation = "http://views/html/timetable.html?surname=" + encodeURIComponent(staffShiftSurname) +
 			"?date=" + encodeURIComponent(daysOfAllocation) +
