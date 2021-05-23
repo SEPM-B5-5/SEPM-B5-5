@@ -10,13 +10,13 @@
 
 <div class="jumbotron text-center">
 	<h1><small>Form </small>Your Shift</h1>
-	<p><i>Shift Allocation Table</i></p>
+	<p><i>Shift Allocation Form</i></p>
 </div>
 
 <a href="./index.html" class="btn btn-secondary">Return</a>
 
 <div class="col-xs-6 col-sm-4">
-	<h2 id="staff-member-fullname">John Doe</h2>
+	<h2 id="staffMemberName">John Doe</h2>
 	<p>This is the Roster Calendar. <br>
 		Input your shift details here.
 	</p>
@@ -26,61 +26,76 @@
 <!--Code Line Break!-->
 <!--Double Code LINE BREAK!!-->
 <div class="container-fluid" id="hrm-timetable-detailer">
-	<table id="hrm-workshift-calendar" class="table">
-		<thead>
-			<tr>
-				<th scope="col" id="days-of-the-week">Monday</th>
-			</tr>
-		</thead>
-	
-		<tbody>
-			<tr>
-				<th scope="row" id="workshift-datacell">Workshift</th>
-			</tr>
-		</tbody>
-	</table>
+	<div class="row">
+		<div class="col-xs-6 col-sm-4">
+<div class="form-group">
+	<label for="staff-shift-surname">Staff Member Surname</label>
+	<input type="text" name="staff-shift-surname" id="staff-shift-surname" placeholder="Staff Member Surname" class="form-control">
+</div>
+<form action="../php/shiftAllocator.php" method="post">
+<div class="form-group">
+	<label for="time-for-staff">Time</label>
+	<select name="time-for-staff" id="time-for-staff" class="form-control">
+		<option value="6:00AM">6:00AM (Start of Shift)</option>
+		<option value="9:00AM">9:00AM (Start of Shift)</option>
+		<option value="2:00PM">2:00PM (Start of Shift)</option>
+	</select>
+</div>
 
-	<button id="remove-workshift-button">Remove Workshift</button>
-	
-	<script>
-	$(document).ready( function () {
-		var hrmmWorshiftInstval = $('#hrm-workshift-calendar').DataTable({
+<div class="form-group">
+	<label for="days-of-allocation">Day</label>
+	<select name="days-of-allocation" id="days-of-allocation" class="form-control">
+		<option value="Monday">Monday</option>
+		<option value="Tuesday">Tuesday</option>
+		<option value="Wednesday">Wednesday</option>
+		<option value="Thursday">Thursday</option>
+		<option value="Friday">Friday</option>
+	</select>
+</div>
+
+<div class="form-group">
+	<button id="allocate-workshift-button">Allocate Workshift</button>
+</div>
+</form>
+<script>
+$(document).ready( function () {
+	var hrmmWorshiftInstval = $('#hrm-workshift-calendar').DataTable({
 			ordering: false,
 			searching: false,
 			select: true
-		});
-
-		var additionalDatum = {
-			staffShiftSurname : {daysOfAllocation, timeForStaff}
-		}
-
-		function passingObjectDataProc() {
-			var datacellRetval = localStorage['mPassingObjectData']
-			localStorage.removeItem('mPassingObjectData')
-			additionalDatum.staffShiftSurname = datacellRetval.staffShiftSurname
-			additionalDatum.daysOfAllocation = datacellRetval.daysOfAllocation
-			additionalDatum.timeForStaff = datacellRetval.timeForStaff
-		} // "How to pass data from one page to another page html", [Accessed on: 13 May 2021], [online] Available at: https://stackoverflow.com/questions/36599781/how-to-pass-data-from-one-page-to-another-page-html?noredirect=1&lq=1
-
-		window.onload = function () {
-			passingObjectDataProc()
-		} // "Transfer data from one HTML file to another", [Accessed on: 13 May 2021] [Available at: https://stackoverflow.com/questions/17502071/transfer-data-from-one-html-file-to-another]
+	});
 	
-		$('#remove-workshift-button').click( function () {
-			table.row('.active').remove().draw(false);
-		} );
-	
-		$('#hrm-workshift-calendar tbody').on('mouseenter', 'td', function () {
-			var idx = hrmmWorkshiftInstval.cell(this).index().column;
-			$(hrmmWorkshiftInstval.cells().nodes()).removeClass('highlight');
-			$(hrmmWorkshiftInstval.column(idx).nodes()).addClass('highlight');
-		});
-	
-		$('#hrm-workshift-calendar tbody').on('click', 'tr', function() {
-			$(this).toggleClass('active');
-		})
-	} );
-	</script>
+	var staffShiftSurname = Document.getElementById('staff-shift-surname').value
+	var daysOfAllocation = Document.getElementById('days-of-allocation').value
+	var timeForStaff = Document.getElementById('time-for-staff').value // these values can be transformed with JavalinIO's ,,.formParams()'' function.
+
+	var additionalDatum = {
+		staffShiftSurname : {daysOfAllocation, timeForStaff}
+	} // have the values act as tuple-like objects to pass into ,,localStorage'' or ,,sessionStorage''
+	// push all these other values into a tuple-list or so.
+	var userInputtedValues = hrmmWorkshiftInstval.$('input, select').serialize(); // <- DataTables API
+
+	var cellIndex = Document.getElementById('hrm-workshift-calendar').cell
+
+	$('#allocate-workshift-button').on('click', function () {
+		hrmmWorkshiftInstval.row.add([
+			cellIndex + additionalDatum + userInputtedValues
+		]).draw(false);
+
+		cellIndex++;
+	});
+	// "Transfer data from one HTML file to another", [Accessed on: 13 May 2021] [online] Available at: https://stackoverflow.com/questions/17502071/transfer-data-from-one-html-file-to-another
+	var datacellInformation = "http://views/html/timetable.html?surname=" + encodeURIComponent(staffShiftSurname) +
+		"?date=" + encodeURIComponent(daysOfAllocation) +
+			"?time=" + encodeURIComponent(timeForStaff)
+
+	localStorage.setItem('mPassingObjectData', additionalDatum)
+
+	document.location.href = datacellInformation // NOTE(Daniel): JSON.stringify(datacellRetval)|>.parse(datacellRetval).keyIndex0..keyIndex8?
+}); // "How to pass data from one page to another page html", [Accessed on: 13 May 2021], [online] Available at: https://stackoverflow.com/questions/36599781/how-to-pass-data-from-one-page-to-another-page-html?noredirect=1&lq=1
+</script>
+		</div>
+	</div>
 </div>
 <!--T R I P L E Code Line Break!-->
 <!--QUADRUPLE Code ... LINE BREAK!!!-->
