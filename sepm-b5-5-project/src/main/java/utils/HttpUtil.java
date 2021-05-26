@@ -14,8 +14,8 @@ public class HttpUtil {
 	}
 
 	public static String attrWorkshiftRoster(Context context) {
-		String roster = context.sessionAttribute("workshiftRoster");
-		context.sessionAttribute("workshiftRoster", null);
+		String roster = context.sessionAttribute("RosterAndAllocate");
+		context.sessionAttribute("RosterAndAllocate", null);
 		return roster;
 	}
 

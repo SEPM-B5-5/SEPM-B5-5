@@ -1,7 +1,8 @@
 package app;
 
 import controllers.workshiftRoster.*;
-import controllers.LoginLogoutSystemController;
+import controllers.LoginController;
+import controllers.LoginRedirectController;
 import io.javalin.http.Handler;
 import managers.shiftallocation.*;
 import data.PriorityData;
@@ -15,21 +16,20 @@ public class Application {
 
     public static void main(String[] args) {
         Javalin app = Javalin.create(conf -> {
-			conf.addStaticFiles("resources/");
-		}).start(7000);
-        app.get("/", ctx -> ctx.result("Hello World"));
-
-		/*JavalinRenderer.register(".html");*/
+			conf.addStaticFiles("/web/html/");
+			conf.registerPlugin(new RouteOverviewPlugin("/help/routes"));
+		}).start(8080);
 
 		route(app);
     }
 
 	public static void route(Javalin app) {
-		app.get("/login", context -> {
-			context.render("/html/login.html", utils.ViewModelUtil.baseModel(context));
-		});
+		app.get(LoginController.URL, new LoginController());
+		app.get(LoginRedirectController.URL, new LoginRedirectController());
 
-		app.get("/workshiftRoster", (Handler) new WorkshiftRosterController());
-		app.get("/workshiftRoster/:id", new WorkshiftRosterUpdateController());
+		app.get(IndexController.URL, new IndexController());
+
+		app.get("/RosterAndAllocate", (Handler) new WorkshiftRosterController());
+		app.get("/RosterAndAllocate/:id", new WorkshiftRosterUpdateController());
 	}
 }

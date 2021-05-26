@@ -11,7 +11,7 @@ import utils.ViewModelUtil;
 import static utils.HttpUtil.attrSessionLogin;
 
 public class LoginLogoutSystemController {
-	public static String URL = "/~/web/html/login.html";
+	public static String URL = "login.html";
 
 	public static Handler loginRetval = context -> {
 		Map<String, Object> model = ViewModelUtil.baseModel(context);

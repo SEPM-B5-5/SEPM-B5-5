@@ -14,11 +14,11 @@ import static utils.HttpUtil.attrWorkshiftRoster;
 
 public class WorkshiftRosterUpdateController implements Handler {
 	private static String WorkshiftRosterTableCell = "currentCellIndex";
-	public static String URL = "/~/web/html/RosterAndAllocate.html";
+	public static String URL = "RosterAndAllocate.html";
 
 	public static Handler rosterRetval = context -> {
 		Map<String, Object> model = ViewModelUtil.baseModel(context);
-		model.put("workshiftRoster", attrWorkshiftRoster(context));
+		model.put("RosterAndAllocate", attrWorkshiftRoster(context));
 		context.render(URL, model);
 	};
 

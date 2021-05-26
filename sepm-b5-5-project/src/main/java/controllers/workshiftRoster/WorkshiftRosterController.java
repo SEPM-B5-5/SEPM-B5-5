@@ -12,12 +12,12 @@ import java.util.Map;
 
 import static utils.HttpUtil.attrWorkshiftRoster;
 
-public class WorkshiftRosterController {
-	public static String URL = "/~/web/html/RosterAndAllocate.html";
+public class WorkshiftRosterController implements Handler {
+	public static String URL = "RosterAndAllocate.html";
 
-	public static Handler rosterRetval = context -> {
+	public void handle(@NotNull Context context) {
 		Map<String, Object> model = ViewModelUtil.baseModel(context);
-		model.put("workshiftRoster", attrWorkshiftRoster(context));
+		// model.put("workshiftRoster", attrWorkshiftRoster(context));
 		context.render(URL, model);
 	};
 }
