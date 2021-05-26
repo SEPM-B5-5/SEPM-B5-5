@@ -13,27 +13,9 @@ import java.util.Map;
 import static utils.HttpUtil.attrWorkshiftRoster;
 
 public class WorkshiftRosterUpdateController implements Handler {
-	private static String WorkshiftRosterTableCell = "currentCellIndex";
-	public static String URL = "RosterAndAllocate.html";
-
-	public static Handler rosterRetval = context -> {
-		Map<String, Object> model = ViewModelUtil.baseModel(context);
-		model.put("RosterAndAllocate", attrWorkshiftRoster(context));
-		context.render(URL, model);
-	};
-
-	public static Handler rosterUpdate = context -> {
-		if (context.formParam("username") != null) {
-			mUser.setUsername(context.formParam("username"));
-		} else if (context.formParam("username").equals(null)) {
-			context.getOrNull();
-		}
-	};
-
 	@Override
 	public void handle(@NotNull Context context) throws Exception {
-		/*User mUser = context.sessionAttribute(USER_KEY);
-		String sessionAttrUsername = context.sessionAttribute(USERNAME);
-		String sessionAttrPassword = context.sessionAttribute(PASSWORD);*/
+		User user = context.sessionAttribute("username");
+		String username = user.getUsername("username");
 	}
 }
