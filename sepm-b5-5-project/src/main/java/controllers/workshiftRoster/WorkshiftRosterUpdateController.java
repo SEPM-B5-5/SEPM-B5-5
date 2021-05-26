@@ -31,7 +31,7 @@ public class WorkshiftRosterUpdateController implements Handler {
 	};
 
 	@Override
-	public void handle(@NotNull Context ctx) throws Exception {
+	public void handle(@NotNull Context context) throws Exception {
 		/*User mUser = context.sessionAttribute(USER_KEY);
 		String sessionAttrUsername = context.sessionAttribute(USERNAME);
 		String sessionAttrPassword = context.sessionAttribute(PASSWORD);*/
