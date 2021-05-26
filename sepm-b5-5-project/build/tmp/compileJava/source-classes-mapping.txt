@@ -1,10 +1,30 @@
-controllers/LoginLogoutSystemController.java
- controllers.LoginLogoutSystemController
+controllers/LoginController.java
+ controllers.LoginController
 controllers/workshiftRoster/WorkshiftRosterController.java
  controllers.workshiftRoster.WorkshiftRosterController
-app/Application.java
- app.Application
-classes/User.java
- classes.User
+controllers/workshiftRoster/WorkshiftRoster.java
+ controllers.workshiftRoster.WorkshiftRoster
+managers/shiftallocation/ShiftAllocateDAO.java
+ managers.shiftallocation.ShiftAllocateDAO
+managers/shiftallocation/ShiftAllocate.java
+ managers.shiftallocation.ShiftAllocate
+data/UserData.java
+ data.UserData
+data/PriorityData.java
+ data.PriorityData
+controllers/LoginRedirectController.java
+ controllers.LoginRedirectController
 utils/HttpUtil.java
  utils.HttpUtil
+controllers/workshiftRoster/WorkshiftRosterUpdateController.java
+ controllers.workshiftRoster.WorkshiftRosterUpdateController
+controllers/IndexController.java
+ controllers.IndexController
+utils/ViewModelUtil.java
+ utils.ViewModelUtil
+app/Application.java
+ app.Application
+managers/shiftallocation/ShiftAllocateController.java
+ managers.shiftallocation.ShiftAllocateController
+classes/User.java
+ classes.User
