@@ -9,7 +9,7 @@
 </head>
 
 <div class="jumbotron text-center">
-	<h1><small>Form </small>Your Shift</h1>
+	<h1><small>Roster </small>Calendar</h1>
 	<p><i>Shift Allocation Form</i></p>
 </div>
 
@@ -48,7 +48,14 @@
 
 <button id="remove-shift-button">Remove Shift</button>
 
-<form class="form-group" action="../php/shiftAllocator.php" method="post">
+<form class="form-group">
+
+	<label for="staff-member-name">Time</label>
+	<select name="staff-member-name" id="time-for-staff" class="form-control">
+		<option value="staffMemberName">John Doe</option>
+		<option value="examplarA1StaffMemberName">Vincenze Dubois</option>
+		<option value="examplarB2StaffMemberName">Daniel David</option>
+	</select>
 
 	<label for="time-for-staff">Time</label>
 	<select name="time-for-staff" id="time-for-staff" class="form-control">
@@ -139,7 +146,7 @@
 		$('#remove-shift-button').click(function () {rosterCalendar.row('.active').remove().draw(false)})
 		//
 		// "Transfer data from one HTML file to another", [Accessed on: 13 May 2021] [online] Available at: https://stackoverflow.com/questions/17502071/transfer-data-from-one-html-file-to-another
-		var datacellInformation = "http://views/html/timetable.html?surname=" + encodeURIComponent(staffShiftSurname) +
+		var datacellInformation = "http://views/html/RosterAndAllocate.html?surname=" + encodeURIComponent(staffShiftSurname) +
 			"?date=" + encodeURIComponent(daysOfAllocation) +
 				"?time=" + encodeURIComponent(timeForStaff)
 	
