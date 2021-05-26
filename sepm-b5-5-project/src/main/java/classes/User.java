@@ -1,7 +1,7 @@
 package classes;
 
 public class User {
-	public String username;
+	public static String username;
 	public String password;
 
 	public User(String username, String password) {
@@ -17,8 +17,8 @@ public class User {
 		return this.password;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public static void setUsername(String NewUsername) {
+		username = NewUsername;
 	}
 
 	public void setPassword(String password) {

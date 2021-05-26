@@ -24,15 +24,15 @@ public class WorkshiftRosterUpdateController implements Handler {
 
 	public static Handler rosterUpdate = context -> {
 		if (context.formParam("username") != null) {
-			mUser.setUsername(context.formParam("username"));
+			User.setUsername(context.formParam("username"));
 		} else if (context.formParam("username").equals(null)) {
-			context.getOrNull();
+//			context.getOrNull();
 		}
 
 		if (context.formParam("password") != null) {
-			mUser.setUsername(context.formParam("password"));
+			User.setUsername(context.formParam("password"));
 		} else if (context.formParam("password").equals(null)) {
-			context.getOrNull();
+//			context.getOrNull();
 		}
 	};
 
