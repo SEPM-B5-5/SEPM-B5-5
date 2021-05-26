@@ -14,7 +14,7 @@ import static utils.HttpUtil.attrWorkshiftRoster;
 
 public class WorkshiftRosterUpdateController implements Handler {
 	private static String WorkshiftRosterTableCell = "currentCellIndex";
-	public static String URL = "html/roster.html";
+	public static String URL = "/~/web/html/RosterAndAllocate.html";
 
 	public static Handler rosterRetval = context -> {
 		Map<String, Object> model = ViewModelUtil.baseModel(context);
@@ -26,12 +26,6 @@ public class WorkshiftRosterUpdateController implements Handler {
 		if (context.formParam("username") != null) {
 			mUser.setUsername(context.formParam("username"));
 		} else if (context.formParam("username").equals(null)) {
-			context.getOrNull();
-		}
-
-		if (context.formParam("password") != null) {
-			mUser.setUsername(context.formParam("password"));
-		} else if (context.formParam("password").equals(null)) {
 			context.getOrNull();
 		}
 	};

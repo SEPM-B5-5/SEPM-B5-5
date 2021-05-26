@@ -13,7 +13,7 @@ import java.util.Map;
 import static utils.HttpUtil.attrWorkshiftRoster;
 
 public class WorkshiftRosterController {
-	public static String URL = "html/roster.html";
+	public static String URL = "/~/web/html/RosterAndAllocate.html";
 
 	public static Handler rosterRetval = context -> {
 		Map<String, Object> model = ViewModelUtil.baseModel(context);
