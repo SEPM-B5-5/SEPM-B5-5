@@ -1,35 +1,40 @@
 package controllers;
 
 import java.util.Map;
+
+import org.jetbrains.annotations.NotNull;
+
+import classes.User;
+
 import java.util.HashMap;
 
 import io.javalin.Javalin;
+import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import utils.HttpUtil;
 import utils.ViewModelUtil;
 
-import static utils.HttpUtil.attrSessionLogin;
-
-public class LoginLogoutSystemController {
+public class LoginController implements Handler {
 	public static String URL = "login.html";
+	public User user;
 
-	public static Handler loginRetval = context -> {
+	@Override
+	public void handle(@NotNull Context context) {
 		Map<String, Object> model = ViewModelUtil.baseModel(context);
-		model.put("login", attrSessionLogin(context));
 		context.render(URL, model);
 	};
 
-	public static Handler loginUpdate = context -> {
+	/* public static Handler loginUpdate = context -> {
 		if (context.formParam("username") != null) {
-			mUser.setUsername(context.formParam("username"));
+			user.setUsername(context.formParam("username"));
 		} else if (context.formParam("username").equals(null)) {
-			context.getOrNull();
+			context.result("Context Result: Login Failed.");
 		}
 
 		if (context.formParam("password") != null) {
-			mUser.setUsername(context.formParam("password"));
+			user.setPassword(context.formParam("password"));
 		} else if (context.formParam("password").equals(null)) {
-			context.getOrNull();
+			context.result("Context Result: Login Failed.");
 		}
-	};
+	}; */
 }

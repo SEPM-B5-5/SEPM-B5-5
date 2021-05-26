@@ -1,6 +1,7 @@
 package app;
 
 import controllers.workshiftRoster.*;
+import controllers.IndexController;
 import controllers.LoginController;
 import controllers.LoginRedirectController;
 import io.javalin.http.Handler;

@@ -13,9 +13,11 @@ import java.util.Map;
 import static utils.HttpUtil.attrWorkshiftRoster;
 
 public class WorkshiftRosterUpdateController implements Handler {
+	User user = new User();
+
 	@Override
 	public void handle(@NotNull Context context) throws Exception {
 		User user = context.sessionAttribute("username");
-		String username = user.getUsername("username");
+		user.setUsername("username");
 	}
 }

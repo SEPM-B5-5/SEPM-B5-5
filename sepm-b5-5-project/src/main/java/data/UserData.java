@@ -12,8 +12,8 @@ public class UserData {
 	List<User> userList;
 
 	public List<User> user = Collections.singletonList(
-			new User("johndoe", "password123")
-	);
+			new User("johndoe", "password123", PriorityData.STAFF_MEMBER)
+		);
 
 	public User getUsername(String username) {
 		return user.stream()
