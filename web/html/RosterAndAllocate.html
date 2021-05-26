@@ -22,9 +22,10 @@
 	</p>
 </div>
 
-<body> <!--This is where the body is at. A comment is here serving as a code line-break-->
+<body class="container"> <!--This is where the body is at. A comment is here serving as a code line-break-->
 <!--Code Line Break!-->
 <!--Double Code LINE BREAK!!-->
+
 <table class="table" id="hrm-roster-calendar">
 	<thead id="days-of-allocation">
 		<tr id="days-header-row">
@@ -46,35 +47,42 @@
 	</div>
 </div>
 
-<button id="remove-shift-button">Remove Shift</button>
 
-<form class="form-group">
+<button class="btn btn-sm btn-danger" id="remove-shift-button">Remove Shift</button>
+<br>
 
-	<label for="staff-member-name">Time</label>
-	<select name="staff-member-name" id="time-for-staff" class="form-control">
-		<option value="staffMemberName">John Doe</option>
-		<option value="examplarA1StaffMemberName">Vincenze Dubois</option>
-		<option value="examplarB2StaffMemberName">Daniel David</option>
-	</select>
+<div class="mx-auto">
+	<div class="col-md-4 offset-md-4 text-left">
+		<form class="form-group">
+			<br>
+			<label for="staffMemberName">Time</label>
+			<select name="staffMemberName" id="staff-member-name" class="form-control">
+				<option value="staffMemberName">John Doe</option>
+				<option value="examplarA1StaffMemberName">Vincenze Dubois</option>
+				<option value="examplarB2StaffMemberName">Daniel David</option>
+			</select>
 
-	<label for="time-for-staff">Time</label>
-	<select name="time-for-staff" id="time-for-staff" class="form-control">
-		<option value="6:00AM">6:00AM (Start of Shift)</option>
-		<option value="9:00AM">9:00AM (Start of Shift)</option>
-		<option value="2:00PM">2:00PM (Start of Shift)</option>
-	</select>
+			<label for="memberChosenTime">Time</label>
+			<select name="memberChosenTime" id="time-for-staff" class="form-control">
+				<option value="6:00AM">6:00AM (Start of Shift)</option>
+				<option value="9:00AM">9:00AM (Start of Shift)</option>
+				<option value="2:00PM">2:00PM (Start of Shift)</option>
+			</select>
 
-	<label for="days-of-allocation">Day</label>
-	<select name="days-of-allocation" id="days-of-allocation" class="form-control">
-		<option value="Monday">Monday</option>
-		<option value="Tuesday">Tuesday</option>
-		<option value="Wednesday">Wednesday</option>
-		<option value="Thursday">Thursday</option>
-		<option value="Friday">Friday</option>
-	</select>
+			<label for="allocatedDay">Day</label>
+			<select name="allocatedDay" id="days-of-allocation" class="form-control">
+				<option value="Monday">Monday</option>
+				<option value="Tuesday">Tuesday</option>
+				<option value="Wednesday">Wednesday</option>
+				<option value="Thursday">Thursday</option>
+				<option value="Friday">Friday</option>
+			</select>
+			<br>
 
-	<button id="allocate-shift-button">Allocate Workshift</button>
-</form>
+			<button class="btn btn-sm btn-primary" id="allocate-shift-button">Allocate Workshift</button>
+		</form>
+	</div>
+</div>
 <!--T R I P L E Code Line Break!-->
 <!--QUADRUPLE Code ... LINE BREAK!!!-->
 </body>
