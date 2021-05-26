@@ -26,7 +26,7 @@
 <!--Code Line Break!-->
 <!--Double Code LINE BREAK!!-->
 
-<table class="table" id="hrm-roster-calendar">
+<table class="table" id="roster-calendar">
 	<thead id="days-of-allocation">
 		<tr id="days-header-row">
 			<th id="days-cell-item">Monday</th>
@@ -104,7 +104,7 @@
 
 <script>
 	$(document).ready( function () {
-		var rosterCalendar = $('#hrm-roster-calendar').DataTable({
+		var rosterCalendar = $('#roster-calendar').DataTable({
 				ordering: true,
 				searching: false,
 				select: true
@@ -133,7 +133,7 @@
 
 		$('#allocate-shift-button').click()
 		// highlight table body cells
-		$('#hrm-roster-calendar tbody').on('mouseenter', 'td', function () {
+		$('#roster-calendar tbody').on('mouseenter', 'td', function () {
 			var columnIndex = rosterCalendar.cell(this).index().column
 
 			$(rosterCalendar.cells().nodes().removeClass('highlight'))
