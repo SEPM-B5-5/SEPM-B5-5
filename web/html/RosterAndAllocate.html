@@ -89,9 +89,13 @@
 <script>
 	$(document).ready( function () {
 		var rosterCalendar = $('#roster-calendar').DataTable({
-				ordering: true,
-				searching: false,
-				select: true
+			ordering: true,
+			searching: false,
+			select: true,
+			
+			columnDefs: [
+				{targets: [0, 5], searchable: true, visible: true},
+			],
 		})
 
 		var daysHeaderRow = document.getElementById('days-header-row')
