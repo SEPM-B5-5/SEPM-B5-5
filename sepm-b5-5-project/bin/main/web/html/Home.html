@@ -32,9 +32,44 @@
 					</div>
 				</label>
 			</span>
+
+			<table class="table" id="notifs-table">
+				<thead id="notifs-header">
+					<tr>
+						<th id="notifs-date">Date</th>
+						<th id="notifs-time">Time</th>
+						<th id="notifs-title">Title</th>
+						<th id="notifs-msg">Message</th>
+					</tr>
+				</thead>
+			</table>
 		</main>
 	</div>
 </body>
 
 <footer></footer>
 </html>
+
+<script>
+$(document).ready(function () {
+
+var notifsTable = $('#notifs-table').DataTable({
+		ordering: true,
+		searching: false,
+		select: false,
+
+		ajax: "../data/homeNotifs.json",
+	})
+
+$('#notifs-table tbody').on('mouseenter', 'tr', function () {
+	if ( $(this).hasClass('active') ) {
+		$(this).removeClass('active');
+	}
+	else {
+		notifsTable.$('tr.active').removeClass('active');
+		$(this).addClass('active');
+	}
+})
+
+})
+</script>
