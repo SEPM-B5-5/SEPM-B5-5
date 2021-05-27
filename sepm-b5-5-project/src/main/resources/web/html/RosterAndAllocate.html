@@ -92,6 +92,17 @@
 			ordering: true,
 			searching: false,
 			select: true,
+
+			columns: [
+				{
+					"className": 'details-control',
+					"orderable": 'false',
+					"data": 'null',
+					"defaultContent": ''
+				},
+
+				// {"data": "days"}
+			],
 			
 			columnDefs: [
 				{targets: [0, 5], searchable: true, visible: true},
@@ -147,4 +158,32 @@
 			rosterCalendar.row('.active').remove().draw(false)
 		})
 	}); // "How to pass data from one page to another page html", [Accessed on: 13 May 2021], [online] Available at: https://stackoverflow.com/questions/36599781/how-to-pass-data-from-one-page-to-another-page-html?noredirect=1&lq=1
+</script>
+
+<script>
+function detailExtra(d) {
+	return "<tr>\
+		<td>Details</td>"+
+		"<td>"+ d.days + "&nbsp" + d.time +"</td>"+
+	"</tr>"
+}
+</script>
+
+<script>
+$(function () {
+// TODO: code ...
+$('#roster-calendar tbody').on('click', 'td.details-control', function () {
+	var tr = $(this).closest('tr')
+	var row = rosterCalendar.row(tr)
+
+	if (row.child.isShown()) {
+		row.child.hide()
+		tr.removeClass('shown')
+	} else {
+		row.child(detailExtra(row.data())).show()
+		tr.addClass('shown')
+	}
+})
+
+})
 </script>
