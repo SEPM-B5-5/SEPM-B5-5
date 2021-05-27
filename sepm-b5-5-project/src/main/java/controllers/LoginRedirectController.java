@@ -8,16 +8,18 @@ import classes.User;
 
 public class LoginRedirectController implements Handler {
 
+
+
 	@Override
 	public void handle(@NotNull Context context) {
 		User user = new User();
 
 		switch(String.valueOf(user.getPriorityData())) {
 			case "STAFF_MEMBER":
-				context.redirect("index.html");
+				context.redirect("/resources/web/html/index.html");
 				break;
 			default:
-				context.redirect("RosterAndAllocate.html");
+				context.redirect("/resources/web/html/RosterAndAllocate.html");
 				break;
 		}
 	}

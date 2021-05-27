@@ -25,7 +25,8 @@ public class Application {
     }
 
 	public static void route(Javalin app) {
-		app.get(LoginController.URL, new LoginController());
+
+    	app.get(LoginController.URL, new LoginController());
 //		app.get(LoginRedirectController.URL, new LoginRedirectController());
 
 		app.get(IndexController.URL, new IndexController());
