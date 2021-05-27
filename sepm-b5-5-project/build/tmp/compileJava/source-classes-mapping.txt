@@ -12,8 +12,8 @@ data/UserData.java
  data.UserData
 data/PriorityData.java
  data.PriorityData
-controllers/LoginRedirectController.java
- controllers.LoginRedirectController
+managers/shiftallocation/ShiftAllocateController.java
+ managers.shiftallocation.ShiftAllocateController
 utils/HttpUtil.java
  utils.HttpUtil
 controllers/workshiftRoster/WorkshiftRosterUpdateController.java
@@ -24,9 +24,11 @@ utils/ViewModelUtil.java
  utils.ViewModelUtil
 models/User.java
  models.User
-managers/shiftallocation/ShiftAllocateController.java
- managers.shiftallocation.ShiftAllocateController
 app/Application.java
  app.Application
 controllers/LoginVerifyController.java
  controllers.LoginVerifyController
+utils/DBUtils.java
+ utils.DBUtils
+utils/DBMigrate.java
+ utils.DBMigrate
