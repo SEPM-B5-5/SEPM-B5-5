@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 public class IndexController implements Handler {
-	public static final String URL = "index.html";
+	public static final String URL = "/resources/web/html/index.html";
 	
 	@Override
 	public void handle(@NotNull Context context) throws Exception {

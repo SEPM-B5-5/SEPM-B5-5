@@ -7,7 +7,6 @@ import org.jetbrains.annotations.NotNull;
 import classes.User;
 
 public class LoginRedirectController implements Handler {
-	public static final String URL = "index.html";
 
 	@Override
 	public void handle(@NotNull Context context) {

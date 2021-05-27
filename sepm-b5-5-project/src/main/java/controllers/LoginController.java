@@ -15,7 +15,7 @@ import utils.HttpUtil;
 import utils.ViewModelUtil;
 
 public class LoginController implements Handler {
-	public static String URL = "login.html";
+	public static String URL = "/resources/web/html/login.html";
 	public User user;
 
 	@Override

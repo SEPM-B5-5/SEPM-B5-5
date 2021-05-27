@@ -1,5 +1,5 @@
-controllers/LoginController.java
- controllers.LoginController
+classes/User.java
+ classes.User
 controllers/workshiftRoster/WorkshiftRosterController.java
  controllers.workshiftRoster.WorkshiftRosterController
 controllers/workshiftRoster/WorkshiftRoster.java
@@ -22,9 +22,9 @@ controllers/IndexController.java
  controllers.IndexController
 utils/ViewModelUtil.java
  utils.ViewModelUtil
-app/Application.java
- app.Application
 managers/shiftallocation/ShiftAllocateController.java
  managers.shiftallocation.ShiftAllocateController
-classes/User.java
- classes.User
+controllers/LoginController.java
+ controllers.LoginController
+app/Application.java
+ app.Application
