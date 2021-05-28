@@ -27,20 +27,20 @@ async function renderBuild() {
 	const dataset = await d3.json("../data/staffWorkshifts.json")
 
 	const parseDate = d3.timeParse("%d-%m-%Y")
-	const dateAccessor = (d) => parseDate(d.dateOf)
+	const dateAccessor = d => parseDate(d.dateAvailability)
 
-	const dateFmt = (d) => d3.timeFormat("%-d/%m")
-	const hoursFmt = (d) => d3.timeFormat("%-I %p")(new Date(d * 1000))
-	const format24hrs = (d) => d3.timeFormat("%H")(new Date(d * 1000))
+	const dateFmt = d => d3.timeFormat("%-d/%m")
+	const hoursFmt = d => d3.timeFormat("%-I %p")(new Date(d * 1000))
+	const format24hrs = d => d3.timeFormat("%H")(new Date(d * 1000))
 
 	const rosterCalendar = d3.select("#roster-calendar")
 
 	const maxRows = 4
 	const maxColumns = 5
 
-	let nametagAccessor = (d) => d.nametag,
-		columnAccessor = (d) => d.daysAvailable,
-		cellAccessor = (d) => d.shiftHours
+	let nametagAccessor = d => d.nametag,
+		columnAccessor = d => d.daysAvailable,
+		cellAccessor = d => d.shiftHours
 
 	const shifts = [
 		{name: nametagAccessor, days: columnAccessor, hours: cellAccessor}
@@ -54,24 +54,24 @@ async function renderBuild() {
 
 	let bodyInnerHtml = rosterCalendar.append("tbody")
 
-	let scaleCells = (d) => d3.scaleLinear()
+	let scaleCells = d3.scaleLinear()
 		.domain(d3.extent(dataset, cellAccessor))
 		.range([windowDimensions.margin.top, windowDimensions.height - windowDimensions.margin.bottom])
 
-	let scaleColumns = (d) => d3.scaleLinear()
+	let scaleColumns = d3.scaleLinear()
 		.domain(d3.extent(dataset, columnAccessor))
 		.range([windowDimensions.margin.top, windowDimensions.height - windowDimensions.margin.bottom])
 
-	dataset.slice(0, maxRows).forEach(d => {
+	dataset.slice(0, maxRows).forEach(() => {
 		bodyInnerHtml.append("tr")
 			.selectAll("td")
-			.dataset(shifts)
+			.data(shifts)
 			.join("td")
 				.text(header => dateFmt(header))
 	})
 } renderBuild()
 
-function eventHandle() {
+/* function eventHandle() {
 	const kanbanTable = {
 		kanban: {
 			height: "480px",
@@ -101,4 +101,4 @@ function eventHandle() {
 			const select = d3.select(i.currentTarget)
 			select.attr("", j)
 		})
-} eventHandle()
+} eventHandle() */
