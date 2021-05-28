@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript" src="https://unpkg.com/d3@6.7.0/dist/d3.min.js">// D3.js</script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Roster</title>
+</head>
+<div class="jumbotron text-center">
+	<h1><small>Roster </small>Calendar</h1>
+	<p><i>Shift Allocation Form</i></p>
+</div>
+
+<a href="Home.html" class="btn btn-secondary">Return</a>
+<br>
+
+<div class="col-xs-6 col-sm-4">
+	<br>
+	<h2 id="staff-member-name">John Doe</h2>
+	<p>This is the Roster Calendar. <br>
+		Input your shift details here.
+	</p>
+</div>
+
+<body class="container"> <!--This is where the body is at. A comment is here serving as a code line-break-->
+<!--Code Line Break!-->
+<!--Double Code LINE BREAK!!-->
+
+<table class="table" id="roster-calendar">
+	<script type="text/javascript" src="../js/CardSystem.js">// CardSystem.js // NOTE(Daniel): by Daniel Surla</script>
+</table>
+
+<button class="btn btn-sm btn-danger" id="remove-shift-button" name="removeShift" value="removeShiftValue">Remove Shift</button>
+<br>
+
+<div class="mx-auto">
+	<div class="col-md-4 offset-md-4 text-left">
+		<form class="form-group">
+			<br>
+			<label for="staffMemberName">Time</label>
+			<select name="staffMemberName" id="staff-member-name-opts" class="form-control">
+				<option value="staffMemberNameValue">John Doe</option>
+				<option value="egA1StaffMemberNameValue">Vincenze Dubois</option>
+				<option value="egB2StaffMemberNameValue">Daniel David</option>
+			</select>
+
+			<label for="allocatedDay">Day</label>
+			<select name="allocatedDay" id="days-of-allocation-opts" class="form-control">
+				<option value="Monday">Monday</option>
+				<option value="Tuesday">Tuesday</option>
+				<option value="Wednesday">Wednesday</option>
+				<option value="Thursday">Thursday</option>
+				<option value="Friday">Friday</option>
+			</select>
+
+			<label for="memberChosenTime">Time</label>
+			<select name="memberChosenTime" id="time-for-staff-opts" class="form-control">
+				<option value="6:00AM-2:00PM">6:00AM-2:00PM</option>
+				<option value="9:00AM-5:00PM">9:00AM-5:00PM</option>
+				<option value="2:00PM-10:00PM">2:00PM-10:00PM</option>
+			</select>
+			<br>
+			
+			<button class="btn btn-sm btn-primary" id="allocate-shift-button" name="allocateShift" value="allocateShiftValue">Allocate Shift</button>
+		</form>
+	</div>
+</div>
+<!--T R I P L E Code Line Break!-->
+<!--QUADRUPLE Code ... LINE BREAK!!!-->
+</body>
+<!---->
+<footer></footer>
+</html>

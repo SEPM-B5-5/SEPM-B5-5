@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript" src="https://unpkg.com/d3@6.7.0/dist/d3.min.js">// D3.js</script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Notifications Hub|Home</title>
+</head>
+<body>
+	<main role="main" class="container">
+		<div class="d-flex align-items-center p-3 my-3 text-dark bg-secondary rounded box-shadow">
+			<div class="mb-0 text-dark lh-100">
+				<img src="../imgs/image222.png" alt="Custom logo image by Daniel Surla" class="mr-3" width="32" height="32">
+				<h1 class="mb-0 text-dark lh-100">Roster Calendar</h1>
+				<p><i>Human Resource Management</i></p>
+			</div>
+		</div>
+		<div class="my-p3 p-3 bg-white rounded box-shadow">
+			<span>
+				<label for="staffMemberName">
+					<div class="media text-justify pt-3">
+						<h1 class="media-body pb-3 mb-0 large lh-100">
+							<strong class="d-block text-dark" id="staff-member-name">John Doe</strong>
+						</h1>
+					</div>
+				</label>
+			</span>
+
+			<table class="table" id="notifs-table">
+				<script src="../js/NotifsHub.js"></script>
+			</table>
+
+			<a href="./RosterAndAllocate.html" class="btn btn-lg btn-primary btn-block">To Roster</a>
+		</div>
+	</main>
+</body>
+</html>

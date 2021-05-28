@@ -1,20 +1,15 @@
 <!doctype html>
 <html lang="en">
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js">// JQuery</script>
-<!-- DataTables -->
-	<link rel="stylesheet" type="text/css" href="../plugins/DataTables/datatables.min.css"/>
-	
-	<script type="text/javascript" src="../plugins/DataTables/datatables.min.js"></script>
-<!--The DataTables CDN provides a convenient way to quickly get started with DataTables. The DataTables software is hosted on the CDN (powered by CloudFlare) and you simply need to include the HTML and CSS files as directed below.-->
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.24/af-2.3.6/b-1.7.0/cr-1.5.3/date-1.0.3/fc-3.3.2/kt-2.6.1/r-2.2.7/rg-1.1.2/rr-1.2.7/sc-2.0.3/sl-1.3.3/datatables.min.css"/>
+<!--The DataTables provides a convenient way to quickly get started with DataTables. DataTables simply need to include the HTML and CSS files and JS files as directed below.-->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.24/cr-1.5.3/date-1.0.3/kt-2.6.1/r-2.2.7/rr-1.2.7/sl-1.3.3/datatables.min.css"/>
  
-	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.24/af-2.3.6/b-1.7.0/cr-1.5.3/date-1.0.3/fc-3.3.2/kt-2.6.1/r-2.2.7/rg-1.1.2/rr-1.2.7/sc-2.0.3/sl-1.3.3/datatables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.24/cr-1.5.3/date-1.0.3/kt-2.6.1/r-2.2.7/rr-1.2.7/sl-1.3.3/datatables.min.js"></script>
 
 <head>
 	<meta charset="UTF-8">
 	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Timetable</title>
+	<title>Roster</title>
 </head>
 
 <div class="jumbotron text-center">
@@ -22,10 +17,12 @@
 	<p><i>Shift Allocation Form</i></p>
 </div>
 
-<a href="./index.html" class="btn btn-secondary">Return</a>
+<a href="Home.html" class="btn btn-secondary">Return</a>
+<br>
 
 <div class="col-xs-6 col-sm-4">
-	<h2 id="staffMemberName">John Doe</h2>
+	<br>
+	<h2 id="staff-member-name">John Doe</h2>
 	<p>This is the Roster Calendar. <br>
 		Input your shift details here.
 	</p>
@@ -36,26 +33,16 @@
 <!--Double Code LINE BREAK!!-->
 
 <table class="table" id="roster-calendar">
-	<thead id="days-of-allocation">
-		<tr id="days-header-row">
-			<th id="days-cell-item">Monday</th>
-			<th id="days-cell-tuesday">Tuesday</th>
-			<th id="days-cell-wednesday">Wednesday</th>
-			<th id="days-cell-thursday">Thursday</th>
-			<th id="days-cell-friday">Friday</th>
+	<thead id="days-header-row">
+		<tr>
+			<th id="adatasort-monday">Monday</th>
+			<th id="adatasort-tuesday">Tuesday</th>
+			<th id="adatasort-wednesday">Wednesday</th>
+			<th id="adatasort-thursday">Thursday</th>
+			<th id="adatasort-friday">Friday</th>
 		</tr>
 	</thead>
-
-	<tbody id="shift-body">
-		<tr id="shift-header-row">
-			<th id="shift-cell-item">Shift</th>
-		</tr>
-	</tbody>
 </table>
-		</div>
-	</div>
-</div>
-
 
 <button class="btn btn-sm btn-danger" id="remove-shift-button" name="removeShift" value="removeShiftValue">Remove Shift</button>
 <br>
@@ -65,29 +52,29 @@
 		<form class="form-group">
 			<br>
 			<label for="staffMemberName">Time</label>
-			<select name="staffMemberName" id="staff-member-name" class="form-control">
+			<select name="staffMemberName" id="staff-member-name-opts" class="form-control">
 				<option value="staffMemberNameValue">John Doe</option>
 				<option value="egA1StaffMemberNameValue">Vincenze Dubois</option>
 				<option value="egB2StaffMemberNameValue">Daniel David</option>
 			</select>
 
-			<label for="memberChosenTime">Time</label>
-			<select name="memberChosenTime" id="time-for-staff" class="form-control">
-				<option value="6:00AM-2:00PM">6:00AM-2:00PM</option>
-				<option value="9:00AM-5:00PM">9:00AM-5:00PM</option>
-				<option value="2:00PM-10:00PM">2:00PM-10:00PM</option>
-			</select>
-
 			<label for="allocatedDay">Day</label>
-			<select name="allocatedDay" id="days-of-allocation" class="form-control">
+			<select name="allocatedDay" id="days-of-allocation-opts" class="form-control">
 				<option value="Monday">Monday</option>
 				<option value="Tuesday">Tuesday</option>
 				<option value="Wednesday">Wednesday</option>
 				<option value="Thursday">Thursday</option>
 				<option value="Friday">Friday</option>
 			</select>
-			<br>
 
+			<label for="memberChosenTime">Time</label>
+			<select name="memberChosenTime" id="time-for-staff-opts" class="form-control">
+				<option value="6:00AM-2:00PM">6:00AM-2:00PM</option>
+				<option value="9:00AM-5:00PM">9:00AM-5:00PM</option>
+				<option value="2:00PM-10:00PM">2:00PM-10:00PM</option>
+			</select>
+			<br>
+			
 			<button class="btn btn-sm btn-primary" id="allocate-shift-button" name="allocateShift" value="allocateShiftValue">Allocate Shift</button>
 		</form>
 	</div>
@@ -96,64 +83,110 @@
 <!--QUADRUPLE Code ... LINE BREAK!!!-->
 </body>
 <!---->
-<footer>
-<!--Getting Started Bootstrap. [online] Available at: "https://getbootstrap.com/docs/3.4/getting-started/#download". [Accessed on: 19/04/21]-->
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-</footer>
+<footer></footer>
 </html>
 
 <script>
 	$(document).ready( function () {
 		var rosterCalendar = $('#roster-calendar').DataTable({
-				ordering: true,
-				searching: false,
-				select: true
+			ordering: true,
+			searching: false,
+			select: true,
+
+			columns: [
+				{
+					"className": 'details-control',
+					"orderable": 'false',
+					"data": 'null',
+					"defaultContent": ''
+				},
+
+				// {"data": "days"}
+			],
+			
+			columnDefs: [
+				{targets: [0, 5], searchable: true, visible: true},
+			],
+
+			ajax: {
+				"url": "../data/staffWorkshifts.json",
+				"dataSrc": "tableData"
+			}
 		})
+
+		var daysHeaderRow = document.getElementById('days-header-row')
 		
-		var staffMemberName = document.getElementById('staff-member-name').value
-		var daysOfAllocation = document.getElementById('days-of-allocation').value
-		var timeForShift = document.getElementById('time-for-shift').value // these values can be transformed with JavalinIO's ,,.formParams()'' function.
+		var staffMemberName = document.getElementById('staff-member-name-opts')
+		var daysOfAllocation = document.getElementById('days-of-allocation-opts')
+		var timeForShift = document.getElementById('time-for-shift-opts') // these values can be transformed with JavalinIO's ,,.formParams()'' function.
 	
-		var additionalDatum = {
+		var inputtedData = {
 			staffMemberName : {daysOfAllocation, timeForShift}
 		} // have the values act as tuple-like objects to pass into ,,localStorage'' or ,,sessionStorage''
 		// push all these other values into a tuple-list or so.
 		var userInputtedValues = rosterCalendar.$('input, select').serialize() // <- DataTables API
 	
-		var rowIndex = rosterCalendar.row
+		// var rowIndex = rosterCalendar.row
 		var cellIndex = 1
 		// shift allocation button for form
 		$('#allocate-shift-button').on('click', function () {
 			rosterCalendar.row.add([
-				cellIndex + additionalDatum + userInputtedValues
+				cellIndex + inputtedData
 			]).draw(false)
 
-			if (cellIndex < 5)
+			if (cellIndex <= 5)
 				cellIndex++
+			else if (rowIndex <= 5)
+				rowIndex++
+			else
+				cellIndex = 1
+				rowIndex = 1
 		})
 
 		$('#allocate-shift-button').click()
 		// highlight table body cells
-		$('#roster-calendar tbody').on('mouseenter', 'td', function () {
-			var columnIndex = rosterCalendar.cell(this).index().column
-
-			$(rosterCalendar.cells().nodes().removeClass('highlight'))
-			$(rosterCalendar.column(columnIndex).nodes().addClass('highlight'))
-
-			if ($(this).hasClass('active'))
-				$(this).removeClass('active')
-
-			else {
-				rosterCalendar.$('tr.active').removeClass('active')
-				$(this).addClass('active')
-			}
+		$('#roster-calendar tbody').on('mouseenter', 'tr', function () {
+			$('#roster-calendar tbody').on( 'click', 'tr', function () {
+		        if ( $(this).hasClass('active') ) {
+		            $(this).removeClass('active');
+		        }
+		        else {
+		            rosterCalendar.$('tr.active').removeClass('active');
+		            $(this).addClass('active');
+		        }
+    		})
 		})
 		
-		$('#remove-shift-button').click(function () {rosterCalendar.row('.active').remove().draw(false)})
+		$('#remove-shift-button').click(function () {
+			rosterCalendar.row('.active').remove().draw(false)
+		})
 	}); // "How to pass data from one page to another page html", [Accessed on: 13 May 2021], [online] Available at: https://stackoverflow.com/questions/36599781/how-to-pass-data-from-one-page-to-another-page-html?noredirect=1&lq=1
+</script>
+
+<script>
+function detailExtra(d) {
+	return "<tr>\
+		<td>Details</td>"+
+		"<td>"+ d.days + "&nbsp" + d.time +"</td>"+
+	"</tr>"
+}
+</script>
+
+<script>
+$(function () {
+// TODO: code ...
+$('#roster-calendar tbody').on('click', 'td.details-control', function () {
+	var tr = $(this).closest('tr')
+	var row = rosterCalendar.row(tr)
+
+	if (row.child.isShown()) {
+		row.child.hide()
+		tr.removeClass('shown')
+	} else {
+		row.child(detailExtra(row.data())).show()
+		tr.addClass('shown')
+	}
+})
+
+})
 </script>
