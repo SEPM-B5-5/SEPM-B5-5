@@ -11,7 +11,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Home | Rostery</title>
+	<title>Home | Board</title>
 </head>
 <body>
 	<main role="main" class="container">
@@ -43,34 +43,66 @@
 					</tr>
 				</thead>
 			</table>
+
+			<p id="egn"></p>
+
+			<a href="./RosterAndAllocate.html" class="btn btn-lg btn-primary btn-block">To Roster</a>
 		</main>
 	</div>
-	<a href="./RosterAndAllocate.html" class="btn btn-lg btn-primary btn-block">To Roster</a>
 </body>
 
 <footer></footer>
 </html>
 
 <script>
+	var jsonVal = JSON.parse()
+</script>
+<!-- Possible Solution: Method 1: -->
+<script>
 $(document).ready(function () {
+	var notifsTable = $('#notifs-table').DataTable({
+			ordering: true,
+			searching: false,
+			select: false,
 
-var notifsTable = $('#notifs-table').DataTable({
-		ordering: true,
-		searching: false,
-		select: false,
+			ajax: "../data/homeNotifs.json",
+		})
 
-		ajax: "../data/homeNotifs.json",
+	$('#notifs-table tbody').on('mouseenter', 'tr', function () {
+		if ( $(this).hasClass('active') ) {
+			$(this).removeClass('active');
+		}
+		else {
+			notifsTable.$('tr.active').removeClass('active');
+			$(this).addClass('active');
+		}
 	})
-
-$('#notifs-table tbody').on('mouseenter', 'tr', function () {
-	if ( $(this).hasClass('active') ) {
-		$(this).removeClass('active');
-	}
-	else {
-		notifsTable.$('tr.active').removeClass('active');
-		$(this).addClass('active');
-	}
 })
+</script>
+<!-- Possible Solution: Method 2: -->
+<script>
+$(document).ready(function () {
+	// "How to create HTML table based on JSON [closed]"". Accessed on: May 27, 2021. [online] Available at: https://stackoverflow.com/questions/42558090/how-to-create-html-table-based-on-json
+	// "Javascript - How to get data from a json file? [duplicate]"". Accessed on May 27, 2021. [online] Available at: https://stackoverflow.com/questions/53917270/javascript-how-to-get-data-from-a-json-file
+	let jsonVal = "../data/notifsHub.json"
 
+	var notifsTable = "<table class=\"table\" id=\"notifs-table\">"
+		notifsTable += "<tr>"
+
+	$.each(jsonVal, function (k, v) {
+		notifsTable += "<th>" + k + "</th>"
+	})
+	notifsTable += "</tr>"
+
+	$.each(jsonVal, function (v) {
+		notifsTable += "<tr>"
+			$.each(v, function (x) {
+				notifsTable += "<td>"+x+"</td>"
+			})
+		notifsTable += "</tr>"
+	})
+	notifsTable += "</table>"
+	
+	$("#notifs-table").html(notifsTable)
 })
 </script>
