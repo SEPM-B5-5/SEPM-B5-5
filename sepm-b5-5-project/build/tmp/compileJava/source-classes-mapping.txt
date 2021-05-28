@@ -24,11 +24,13 @@ utils/ViewModelUtil.java
  utils.ViewModelUtil
 models/User.java
  models.User
-app/Application.java
- app.Application
+utils/DBMigrate.java
+ utils.DBMigrate
 controllers/LoginVerifyController.java
  controllers.LoginVerifyController
 utils/DBUtils.java
  utils.DBUtils
-utils/DBMigrate.java
- utils.DBMigrate
+app/Application.java
+ app.Application
+controllers/CreateAccountController.java
+ controllers.CreateAccountController

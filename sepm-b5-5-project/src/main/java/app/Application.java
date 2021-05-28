@@ -1,6 +1,7 @@
 package app;
 
 
+import controllers.CreateAccountController;
 import controllers.LoginVerifyController;
 import controllers.workshiftRoster.*;
 import controllers.LoginController;
@@ -26,14 +27,14 @@ public class Application {
 
 	public static void route(Javalin app) {
 
-
-
-
 		app.get(LoginController.URL, new LoginController());
 		app.get(HomeController.URL, new HomeController());
 //		app.get(LoginRedirectController.URL, new LoginRedirectController());
+		app.get(CreateAccountController.URL, new CreateAccountController());
+
 		app.get("/RosterAndAllocate", (Handler) new WorkshiftRosterController());
 		app.get("/RosterAndAllocate/:id", new WorkshiftRosterUpdateController());
+
 
 		app.post("/login", new LoginVerifyController());
 	}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<title>Create Accounts</title>
+</head>
+
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="navbar-brand">ROSTERY</li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/resources.html">Roster</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/createaccount.html">Add Account</a>
+      </li>
+    </ul>
+
+  </nav>
+</header>
+
+<body>
+<div class = "jumbotron jumbotron-fluid">
+    <div class="container">
+    <h1 class="display-4">Create a new account</h1>
+</div>
+</div>
+
+<div class="container">
+
+    <form method="POST" action="/accountcreated">
+        <div>
+            <h3>Choose account type to create</h3>
+                <div class="form-group">
+                <label for="stafftype">Choose Type: </label>
+                    <select class ="form-control" id="stafftype" name="stafftype">
+                        <option value="staff">Staff</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+            <div style="margin-top:3em;">
+                <div class="form-group"> 
+                    <label for ="username" style="margin-right:1em;">Username: <input type="text" style="margin-right:1em;" class ="form-control" id="username" name="username"></label>     
+                    <label for ="fname" style="margin-right:1em;">First Name: <input type ="text" style="margin-right:1em;" class ="form-control" id="fname" name="fname"></label>
+                    <label for ="lname" style="margin-right:1em;">Last Name: <input type ="text" style="margin-right:1em;" class ="form-control" id="lname" name="lname"></label>
+                </div>
+                <div class="form-group">
+                    <label for = "email" style="margin-right:1em;">Email Address: <input type="email" style="margin-right:1em;" class ="form-control" id="email" name="email"></label>
+                    <label for = "phonenumber" style="margin-right:1em;">Phone Number: <input type="number" style="margin-right:1em;" class ="form-control" id="phonenumber" name="phonenumber"></label>
+                    <label for = "address" style="margin-right:1em;">Home Address: <input type="text" style="margin-right:1em;" class ="form-control" id="address" name="address"></label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+</div>
+</body>
+
+
+</html>
