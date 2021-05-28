@@ -39,7 +39,7 @@ async function renderBuild() {
 	const maxColumns = 5
 
 	let nametagAccessor = (d) => d.nametag,
-		columnAccessor = (d) => d.dateOf,
+		columnAccessor = (d) => d.daysAvailable,
 		cellAccessor = (d) => d.shiftHours
 
 	const shifts = [
