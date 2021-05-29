@@ -1,7 +1,3 @@
-var $ = require("jquery")
-var datatables = require("datatables.net")(window, $)
-var datatablesButtons = require( 'datatables.net-buttons/js/buttons.colVis.js' )(windwo, $)
-
 var liveServer = require("live-server")
 
 var liveServerParams = {

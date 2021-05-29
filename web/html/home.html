@@ -54,18 +54,15 @@
 <footer></footer>
 </html>
 
-<script>
-	var jsonVal = JSON.parse()
-</script>
-<!-- Possible Solution: Method 1: -->
-<script>
+<script type="text/javascript" src="../js/HomeController.js"></script>
+<!-- <script>
 $(document).ready(function () {
 	var notifsTable = $('#notifs-table').DataTable({
 			ordering: true,
 			searching: false,
 			select: false,
 
-			ajax: "../data/homeNotifs.json",
+			ajax: "../data/notifsHub.json",
 		})
 
 	$('#notifs-table tbody').on('mouseenter', 'tr', function () {
@@ -78,31 +75,4 @@ $(document).ready(function () {
 		}
 	})
 })
-</script>
-<!-- Possible Solution: Method 2: -->
-<script>
-/* $(document).ready(function () {
-	// "How to create HTML table based on JSON [closed]"". Accessed on: May 27, 2021. [online] Available at: https://stackoverflow.com/questions/42558090/how-to-create-html-table-based-on-json
-	// "Javascript - How to get data from a json file? [duplicate]"". Accessed on May 27, 2021. [online] Available at: https://stackoverflow.com/questions/53917270/javascript-how-to-get-data-from-a-json-file
-	let jsonVal = "../data/notifsHub.json"
-
-	var notifsTable = "<table class=\"table\" id=\"notifs-table\">"
-		notifsTable += "<tr>"
-
-	$.each(jsonVal, function (k, v) {
-		notifsTable += "<th>" + k + "</th>"
-	})
-	notifsTable += "</tr>"
-
-	$.each(jsonVal, function (v) {
-		notifsTable += "<tr>"
-			$.each(v, function (x) {
-				notifsTable += "<td>"+x+"</td>"
-			})
-		notifsTable += "</tr>"
-	})
-	notifsTable += "</table>"
-	
-	$("#notifs-table").html(notifsTable)
-}) */
-</script>
+</script> -->
