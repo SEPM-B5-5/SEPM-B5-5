@@ -1,27 +1,16 @@
-import 'http' // Import NodeJS files here
+var $ = require("jquery")
+var datatables = require("datatables.net")(window, $)
+var datatablesButtons = require( 'datatables.net-buttons/js/buttons.colVis.js' )(windwo, $)
 
-function checkCell() {
-	let index = 0;
-	let cellInRow = 1;
-	let cellInColumn = 1;
+var liveServer = require("live-server")
 
-	let hrmTable = document.getElementById("hrmTable");
-	let hrmTableBodyRow = hrmTable.insertRow(index);
-	let hrmTableBodyColumn = hrmTable.insertCell(index);
-
-	if (cellInRow == hrmTableBodyRow) {
-		cellInRow++;
-
-		if (cellInColumn == hrmTableBodyColumn)
-			cellInColumn++;
-	} else {
-		index++;
-	}
-
-	return 0;
+var liveServerParams = {
+	port: 8080,
+	host: "0.0.0.0",
+	root: "/web",
+	open: false,
+	ignore: "js/.outline",
+	file: "index.html",
+	wait: 1000
 }
-
-function indexCell() {
-	// TODO(Daniel): index with `data-content` values checked cells with user input.
-}
-
+liveServer.start(liveServerParams)
