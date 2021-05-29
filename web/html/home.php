@@ -42,11 +42,28 @@
 						<th id="notifs-msg">Message</th>
 					</tr>
 				</thead>
+
+				<tbody>
+					<?php
+						$notifsJson = file_get_contents("../data/notifsHub.json");
+						$notifsJsonDecoded = json_decode($notifsJson, true);
+						$notfisRetvals = $notifsJsonDecoded["dateof"]["timeOf"]["titleOf"]["messageOf"];
+
+						echo "<tr>";
+
+						foreach ($notifsRetvals as $key => $value) {
+							echo "<td>" . $key . "</td>";
+							echo "<td>" . $value . "</td>";
+						}
+
+						echo "</tr>";
+					?>
+				</tbody>
 			</table>
 
 			<p id="egn"></p>
 
-			<a href="./RosterAndAllocate.html" class="btn btn-lg btn-primary btn-block">To Roster</a>
+			<a href="./RosterAndAllocate.php" class="btn btn-lg btn-primary btn-block">To Roster</a>
 		</main>
 	</div>
 </body>

@@ -32,7 +32,7 @@
 				<input type="password" name="password" id="staff-member-password" class="form-control" placeholder="Password" required autofocus>
 				<br>
 				<!-- <button type="submit" class="btn btn-lg btn-success btn-block">Login</button> -->
-				<a href="./Home.html" class="btn btn-lg btn-success btn-block">Login</a>
+				<a href="./home.php" class="btn btn-lg btn-success btn-block">Login</a>
 			</form>
 		</div>
 	</div>
