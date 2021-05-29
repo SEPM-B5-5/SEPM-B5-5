@@ -42,6 +42,22 @@
 			<th id="adatasort-friday">Friday</th>
 		</tr>
 	</thead>
+	<tbody>
+		<?php
+			$shiftsJson = file_get_contents("../data/staffWorkshifts.json");
+			$shiftsJsonDecoded = json_decode($shifts, true);
+			$shiftsRetvals = $shiftsJsonDecoded["nametag"]["daysAvailable"]["shiftHours"];
+
+			echo "<tr>";
+
+			foreach ($shiftsRetvals as $key => $value) {
+				echo "<td>" . $key . "</td>";
+				echo "<td>" . $value . "</td>";
+			}
+
+			echo "</tr>"
+		?>
+	</tbody>
 </table>
 
 <button class="btn btn-sm btn-danger" id="remove-shift-button" name="removeShift" value="removeShiftValue">Remove Shift</button>
@@ -86,7 +102,7 @@
 <footer></footer>
 </html>
 
-<script>
+<!-- <script>
 	$(document).ready( function () {
 		var rosterCalendar = $('#roster-calendar').DataTable({
 			ordering: true,
@@ -161,18 +177,18 @@
 			rosterCalendar.row('.active').remove().draw(false)
 		})
 	}); // "How to pass data from one page to another page html", [Accessed on: 13 May 2021], [online] Available at: https://stackoverflow.com/questions/36599781/how-to-pass-data-from-one-page-to-another-page-html?noredirect=1&lq=1
-</script>
+</script> -->
 
-<script>
+<!-- <script>
 function detailExtra(d) {
 	return "<tr>\
 		<td>Details</td>"+
 		"<td>"+ d.days + "&nbsp" + d.time +"</td>"+
 	"</tr>"
 }
-</script>
+</script> -->
 
-<script>
+<!-- <script>
 $(function () {
 // TODO: code ...
 $('#roster-calendar tbody').on('click', 'td.details-control', function () {
@@ -189,4 +205,4 @@ $('#roster-calendar tbody').on('click', 'td.details-control', function () {
 })
 
 })
-</script>
+</script> -->
