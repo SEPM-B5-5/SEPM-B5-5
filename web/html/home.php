@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js">// JQuery</script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">// JQuery</script>
+
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous">// JQuery UI</script>
 <!--Getting Started Bootstrap. [online] Available at: "https://getbootstrap.com/docs/3.4/getting-started/#download". [Accessed on: 19/04/21]-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
@@ -47,21 +49,22 @@
 					<?php
 						$notifsJson = file_get_contents("../data/notifsHub.json");
 						$notifsJsonDecoded = json_decode($notifsJson, true);
-						$notfisRetvals = $notifsJsonDecoded["dateof"]["timeOf"]["titleOf"]["messageOf"];
+						$notfisRetvals = $notifsJsonDecoded;
 
 						echo "<tr>";
 
-						foreach ($notifsRetvals as $key => $value) {
-							echo "<td>" . $key . "</td>";
-							echo "<td>" . $value . "</td>";
+						foreach ($notifsRetvals as $keyValues) {
+							echo "<td>" . $keyValues["dateof"] . "</td>";
+							echo "<td>" . $keyValues["timeOf"] . "</td>";
+							echo "<td>" . $keyValues["titleOf"] . "</td>";
+							echo "<td>" . $keyValues["messageOf"] . "</td>";
 						}
 
 						echo "</tr>";
 					?>
 				</tbody>
 			</table>
-
-			<p id="egn"></p>
+			<br>
 
 			<a href="./RosterAndAllocate.php" class="btn btn-lg btn-primary btn-block">To Roster</a>
 		</main>
@@ -71,7 +74,7 @@
 <footer></footer>
 </html>
 
-<script type="text/javascript" src="../js/HomeController.js"></script>
+<!-- <script type="text/javascript" src="../js/HomeController.js"></script> -->
 <!-- <script>
 $(document).ready(function () {
 	var notifsTable = $('#notifs-table').DataTable({

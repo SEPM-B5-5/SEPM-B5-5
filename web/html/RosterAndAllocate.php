@@ -1,9 +1,15 @@
 <!doctype html>
 <html lang="en">
-<!--The DataTables provides a convenient way to quickly get started with DataTables. DataTables simply need to include the HTML and CSS files and JS files as directed below.-->
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.24/cr-1.5.3/date-1.0.3/kt-2.6.1/r-2.2.7/rr-1.2.7/sl-1.3.3/datatables.min.css"/>
- 
-	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.24/cr-1.5.3/date-1.0.3/kt-2.6.1/r-2.2.7/rr-1.2.7/sl-1.3.3/datatables.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">// JQuery</script>
+
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous">// JQuery UI</script>
+<!--Getting Started Bootstrap. [online] Available at: "https://getbootstrap.com/docs/3.4/getting-started/#download". [Accessed on: 19/04/21]-->
+<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<!-- Optional theme -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
 <head>
 	<meta charset="UTF-8">
@@ -46,13 +52,15 @@
 		<?php
 			$shiftsJson = file_get_contents("../data/staffWorkshifts.json");
 			$shiftsJsonDecoded = json_decode($shifts, true);
-			$shiftsRetvals = $shiftsJsonDecoded["nametag"]["daysAvailable"]["shiftHours"];
+			$shiftsRetvals = $shiftsJsonDecoded;
 
-			echo "<tr>";
+			echo "<tr id="notifs-info">";
 
-			foreach ($shiftsRetvals as $key => $value) {
-				echo "<td>" . $key . "</td>";
-				echo "<td>" . $value . "</td>";
+			foreach ($shiftsRetvals as $keyValues) {
+				echo "<td id=\"notifs-data\">" . $keyValues->nametag . "\r\n"
+					. $keyValues->daysAvailable . "\r\n"
+					. $keyValues->shiftHours .
+					"</td>";
 			}
 
 			echo "</tr>"
@@ -62,6 +70,25 @@
 
 <button class="btn btn-sm btn-danger" id="remove-shift-button" name="removeShift" value="removeShiftValue">Remove Shift</button>
 <br>
+<!-- "JQuery How to add table cell to a table row". [Accessed on: May 29, 2021]. [online] Available at: https://stackoverflow.com/a/24441951 -->
+<script type="text/javascript">
+$(document).ready(function () {
+
+$("#notifs-info").append(<?php foreach ($shiftsRetvals as $keyValues) {
+				echo "<td>" .
+				"<span id=\"xn-notifs-data\" draggable=\"true\">" . $keyValues->nametag . "\r\n"
+					. $keyValues->daysAvailable . "\r\n"
+					. $keyValues->shiftHours
+					. "</span>" .
+					. "</td>";
+				} ?>)
+
+$("#remove-shift-button").click(function () {
+	$("#xn-notifs-data").remove()
+})
+
+})
+</script>
 
 <div class="mx-auto">
 	<div class="col-md-4 offset-md-4 text-left">
@@ -101,6 +128,29 @@
 <!---->
 <footer></footer>
 </html>
+<!-- "Drag and Drop table cell contents". [Accessed on: May 29, 2021]. [online] Available at: https://stackoverflow.com/a/23472898 -->
+<script type="text/javascript"> 
+$(document).ready(function () {
+
+$("#xn-notifs-data").on("dragstart", function (data) {
+	var d = data.originalEvent.dataTransfer
+	d.setData("Text", $(this).attr(id))
+})
+
+$("#roster-calendar td").on("dragenter dragover drop", function (data) {
+	data.preventDefault()
+
+	if (data.type == "drop") {
+		var cell = data.originalEvent.dataTransfer.getData("Text", $(this).attr("id"))
+
+		xn0 = $("#"+data).detach()
+
+		xn0.appendTo($(this))
+	}
+})
+
+}) // $(document).ready(function (){})
+</script>
 
 <!-- <script>
 	$(document).ready( function () {
