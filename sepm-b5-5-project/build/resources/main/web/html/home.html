@@ -11,29 +11,44 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login</title>
+	<title>Home</title>
 </head>
+<header>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
-<div class="jumbotron text-center">
-	<h1>Sign<small>In</small></h1>
-	<p><i>Human Resources Management - Shift Roster & Calendar</i></p>
-</div>
+		<!-- Links -->
+		<ul class="navbar-nav">
+			<li class="navbar-brand">ROSTERY</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/home.html">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/resources.html">Roster</a>
+			</li>
+		</ul>
 
-<body class="container">
-<div class="mx-auto">
-	<div class="col-md-4 offset-md-4 text-center">
-		<form class="form-signin" method="post" action="/login">
-			<img src="../imgs/image222.png" alt="Custom logo by Daniel Surla" width="64" height="64">
-			<h1 class="h1 mb-3 font-weight-bold">Hello, and Welcome</h1>
-			<label for="staff-member-username" class="sr-only">Username</label>
-			<input type="text" name="username" id="staff-member-username" class="form-control" placeholder="Username" required autofocus>
-			<br>
-			<label for="staff-member-password" class="sr-only">Password</label>
-			<input type="password" name="password" id="staff-member-password" class="form-control" placeholder="Password" required autofocus>
-			<br>
-			<button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
-		</form>
+	</nav>
+</header>
+<body>
+<main role="main" class="container">
+	<div class="d-flex align-items-center p-3 my-3 text-dark bg-secondary rounded box-shadow">
+		<div class="mb-0 text-dark lh-100">
+			<img src="../imgs/image222.png" alt="Custom logo image by Daniel Surla" class="mr-3" width="32" height="32">
+			<h1 class="mb-0 text-dark lh-100">Roster Calendar</h1>
+			<p><i>Human Resource Management</i></p>
+		</div>
 	</div>
+	<div class="my-p3 p-3 bg-white rounded box-shadow">
+			<span>
+				<label for="staff-member-name">
+					<div class="media text-justify pt-3">
+						<h1 class="media-body pb-3 mb-0 large lh-100">
+							<strong class="d-block text-dark" id="staff-member-name">John Doe</strong>
+						</h1>
+					</div>
+				</label>
+			</span>
+</main>
 </div>
 </body>
 

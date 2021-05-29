@@ -1,12 +1,9 @@
 package data;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import classes.User;
+import models.User;
 
 public class UserData {
 	List<User> userList;

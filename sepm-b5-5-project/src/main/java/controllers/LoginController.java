@@ -1,30 +1,28 @@
 package controllers;
 
-import java.util.Map;
-
-import org.jetbrains.annotations.NotNull;
-
-import classes.User;
-
-import java.util.HashMap;
-
-import io.javalin.Javalin;
+import models.User;
+import utils.ViewModelUtil;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-import utils.HttpUtil;
-import utils.ViewModelUtil;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Map;
 
 public class LoginController implements Handler {
-	public static String URL = "/resources/web/html/login.html";
-	public User user;
+	public static final String URL = "/resources/web/html/index.html";
+	public static User user;
 
 	@Override
-	public void handle(@NotNull Context context) {
+	public void handle(@NotNull Context context) throws Exception {
 		Map<String, Object> model = ViewModelUtil.baseModel(context);
 		context.render(URL, model);
-	};
+	}
 
-	/* public static Handler loginUpdate = context -> {
+//	public static Handler loginVerify() {
+//
+//	}
+
+	public static Handler loginUpdate = context -> {
 		if (context.formParam("username") != null) {
 			user.setUsername(context.formParam("username"));
 		} else if (context.formParam("username").equals(null)) {
@@ -36,5 +34,6 @@ public class LoginController implements Handler {
 		} else if (context.formParam("password").equals(null)) {
 			context.result("Context Result: Login Failed.");
 		}
-	}; */
+	};
+
 }
