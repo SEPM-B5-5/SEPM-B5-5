@@ -54,7 +54,7 @@
 			$shiftsJsonDecoded = json_decode($shifts, true);
 			$shiftsRetvals = $shiftsJsonDecoded;
 
-			echo "<tr id="notifs-info">";
+			echo "<tr id=\"notifs-info\">";
 
 			foreach ($shiftsRetvals as $keyValues) {
 				echo "<td id=\"notifs-data\">" . $keyValues->nametag . "\r\n"
