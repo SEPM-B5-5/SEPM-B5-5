@@ -23,7 +23,7 @@
 	<p><i>Shift Allocation Form</i></p>
 </div>
 
-<a href="Home.html" class="btn btn-secondary">Return</a>
+<a href="home.php" class="btn btn-secondary">Return</a>
 <br>
 
 <div class="col-xs-6 col-sm-4">
@@ -80,7 +80,7 @@ $("#notifs-info").append(<?php foreach ($shiftsRetvals as $keyValues) {
 					. $keyValues->daysAvailable . "\r\n"
 					. $keyValues->shiftHours
 					. "</span>" .
-					. "</td>";
+					"</td>";
 				} ?>)
 
 $("#remove-shift-button").click(function () {
