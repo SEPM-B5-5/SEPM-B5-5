@@ -1,0 +1,7 @@
+{
+	"dateOf": ["May 24, 2021", "June 3, 2021", "June 8, 2021", "June 9, 2021", "June 11, 2021", "June 16, 2021"],
+	"timeOf": ["11:01AM", "1:58PM", "2:23PM", "10:30AM", "10:33AM", "11:50AM"],
+	"titleOf": ["Shift Roster Updated", "Leave Approved", "Your pay has been submitted", "Daniel David has asked for a shift swap", "Daniel David has cancelled the shift swap", "Vincenze Dubois is requesting your compliance"],
+	"messageOf": ["Your shift has been updated, please check your online roster calendar.", "Your leave for the 27th of June has been approved.", "Bethany from HR has forwarded and submitted your pay.", "Daniel David is requesting a change of shift with you.",
+		"This is an automated message, please refer to the title.", "Vincenze Dubois needs help in the sales department. He has messaged you through the company email."]
+}

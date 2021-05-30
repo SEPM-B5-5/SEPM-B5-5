@@ -1,0 +1,5 @@
+{
+		"nametag": ["John Doe", "Daniel David", "Vincenze Dubois"],
+		"daysAvailable": ["Monday, Tuesday, Wednesday, Friday", "Tuesday, Wednesday, Friday", "Monday, Wednesday, Friday"],
+		"shiftHours": ["9:00AM - 5:00PM", "6:00AM - 2:00PM", "2:00PM - 10:00PM"]
+}

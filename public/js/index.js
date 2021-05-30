@@ -1,0 +1,12 @@
+var liveServer = require("live-server")
+
+var liveServerParams = {
+	port: 8080,
+	host: "127.0.0.1",
+	root: "/web",
+	open: false,
+	ignore: "js/.outline",
+	file: "index.html",
+	wait: 1000
+}
+liveServer.start(liveServerParams)
