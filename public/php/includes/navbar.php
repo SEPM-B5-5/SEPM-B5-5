@@ -1,5 +1,7 @@
 <?php include("session.php"); ?>
-
+<!-- [Code] Attribution: 
+// - Huu Nghia le
+// - Daniel Surla -->
 <nav class="navbar navbar-expand-lg bg-secondary">
 	<span>
 		<img src="../../imgs/image842.png" alt="Table Icon by Daniel Surla">
@@ -22,7 +24,7 @@
 			</li>
 
 			<li class="nav-item text-right">
-				<a href= <?php echo "$hostServerUrl/public/php/NewStaff.php" ?> class="nav-link">New Staff</a>
+				<a href= <?php echo "$hostServerUrl/public/php/createaccount.php" ?> class="nav-link">Create Account</a>
 			</li>
 			<?php
 				}

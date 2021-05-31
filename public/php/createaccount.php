@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- [Code] Attribution: 
+// - Huu Nghia le
+// - Oliver Hale -->
 <head>
 	<?php
 		include("./includes/head.php");
@@ -57,5 +60,4 @@ if ($result == false) {
 } else {
 	header("Location:NewStaff.php?status=200");
 }
-// [Code] Attribution: Huu Nghia le
 ?>

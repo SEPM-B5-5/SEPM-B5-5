@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- // [Code] Attribution:
+// - Huu Nghia le
+// - Mehedi Hasan Ridoy
+// - Daniel Surla
+ -->
 <head>
 	<?php include("./php/includes/head.php"); ?>
 	<title>Login</title>
@@ -59,5 +64,4 @@ if (mysqli_num_rows($result) > 0) {
     // Otherwise, display an error on the login page
     header("Location:index.php?status=418");
 }
-// [Code] Attribution: Huu Nghia le
 ?>

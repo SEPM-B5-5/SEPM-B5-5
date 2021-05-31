@@ -1,5 +1,8 @@
 <!doctype html>
 <html lang="en">
+<!-- [Code] Attribution: 
+// - "Oscar" Huu Nghia Le
+// - Daniel Surla -->
 <head>
 	<?php
 		include("./includes/head.php");
