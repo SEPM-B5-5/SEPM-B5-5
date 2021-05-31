@@ -13,7 +13,7 @@
 
 <div class="form-group">
     <div class="row">
-        <div class ="col-1">         
+        <div class ="col-2">         
         </div>
         
         <div class ="col-8 container-borders">
@@ -37,7 +37,7 @@
 
                         echo '<p>Shift state: '.$row["shiftState"]. '</p>';
                         echo '<input type="hidden" id="shiftState" value="' .$row["shiftState"] .'">';
-                        echo '<input type="hidden" id="allocationID" value="'.$row["allocationID"] .'">';
+                        echo '<input type="hidden" name="allocationID" id="allocationID" value="'.$row["allocationID"] .'">';
 
                         $var = $row["shiftID"];
                         echo '<input type="hidden" id="shiftID" value="' .$row["shiftID"] .'">';
@@ -60,8 +60,8 @@
                                 echo '<input type="hidden" id="shiftLocation" value="' .$row["shiftLocation"] .'">';
                                 
                                 echo '<div class ="container-borders">';
-                                echo '<button class="btn btn-success" style="margin:.5em;" id="acceptButton" value="accept">Accept</button>';
-                                echo '<button class="btn btn-danger" style="margin:.5em;" id="rejectButton" value="reject">Reject</button>';
+                                echo '<button class="btn btn-success" style="margin:.5em;" name="acceptButton" id="acceptButton" value="accept">Accept</button>';
+                                echo '<button class="btn btn-danger" style="margin:.5em;" name="rejectButton" id="rejectButton" value="reject">Reject</button>';
                                 echo '</div>';
                                 echo '</div>';
                                 echo '</form>';

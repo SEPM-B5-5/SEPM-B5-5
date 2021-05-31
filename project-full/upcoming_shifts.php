@@ -31,6 +31,19 @@
             <hr class="my-4">
             <p>To accept a shift, click the button labeled "accept". To reject, click the button labeled "reject".</p>
         </div>
+        <div>
+        <?php
+            if (isset($_GET['status'])) {
+                if ($_GET['status'] == 'accepted') {
+                    echo ("<p style='color:green;'>Shift accepted</p>");
+                } elseif ($_GET['status'] =='rejected'){
+                    echo ("<p style='color:red;'>Shift rejected.</p>");
+                } else {
+                    echo ("<p style='color:red;'>Failure.</p>");
+                }
+            }
+            ?>
+        </div>
 
 
         <div class = "container" id="ushiftTemplateContainer" style="margin-top:1em; padding-bottom:4em; border-bottom: thin gainsboro solid;">
