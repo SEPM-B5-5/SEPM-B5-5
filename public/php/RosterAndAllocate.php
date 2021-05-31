@@ -82,7 +82,7 @@ $("#remove-shift-button").click(function () {
 			<br>
 			<label for="staffMemberName">Time</label>
 			<select name="staffMemberName" id="staff-member-name-opts" class="form-control">
-				<option value="staffMemberNameValue">John Doe</option>
+				<option value="eg00StaffMemberNameValue">John Doe</option>
 				<option value="egA1StaffMemberNameValue">Vincenze Dubois</option>
 				<option value="egB2StaffMemberNameValue">Daniel David</option>
 			</select>
