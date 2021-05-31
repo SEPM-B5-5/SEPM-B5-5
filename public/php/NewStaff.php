@@ -25,7 +25,7 @@
 				<input type="text" name="firstname" id="staff-member-firstname" class="form-control" required>
 				<label for="staff-member-lastname">Last Name:</label>
 				<input type="text" name="lastname" id="staff-member-lastname" class="form-control" required>
-				<label for="staff-member-priority">Priority:</label>
+				<label for="staff-member-priority">Account Priority:</label>
 				<select name="priority" id="staff-member-priority" class="form-control" required>
 					<option value="employee">Employee</option>
 					<option value="manager">Manager</option>
