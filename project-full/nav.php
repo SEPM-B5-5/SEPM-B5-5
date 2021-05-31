@@ -15,9 +15,5 @@
             <a class="nav-link" href="allocation_history.php">Shift History</a>
         </li>
         
-        <li class="nav-item">
-            <a class="nav-link" href="#">Accept Shifts</a>
-        </li>
-
     </ul>
 </nav>

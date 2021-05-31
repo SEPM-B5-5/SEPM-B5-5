@@ -25,7 +25,7 @@
 
                 $dbConnection = mysqli_connect("localhost","root","","rostery");
                 
-                $query="SELECT allocationID, shiftID, employeeID, shiftState FROM shift_allocations WHERE employeeID=$staffID AND shiftState='upcoming'";
+                $query="SELECT allocationID, shiftID, employeeID, shiftState FROM shift_allocations WHERE employeeID=$staffID AND (shiftState='upcoming' OR shiftState='accepted')";
                 $qResult= mysqli_query($dbConnection, $query);
 
 
@@ -72,7 +72,7 @@
                     }
 
                 } else { 
-                    echo "0 Results";
+                    echo "0 Results. You have no upcoming shifts!";
                 }
                 
 
