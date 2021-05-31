@@ -9,7 +9,7 @@ $failure="allocate_shifts.php?status=failed";
 
 //DB connection + Query
 $dbConnection = mysqli_connect("localhost","root","","rostery");
-$dbQuery="INSERT INTO shift_allocations VALUES(null, '$shiftID', '$employeeID', null);";
+$dbQuery="INSERT INTO shift_allocations VALUES(null, '$shiftID', '$employeeID', 'upcoming');";
 
 //Goes back to previous page, with associated outcome message
 

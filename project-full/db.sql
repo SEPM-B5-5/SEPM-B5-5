@@ -3,7 +3,7 @@
 -- Admin account credentials are: Username/email="admin", Password="admin1234"
 -- Dummy Staff account also created, credentials: user= "staff@dummy.com", password="staff1234"
 
---YOU CAN'T DELETE SHIFTS !!! DON'T DROP THEM FROM THE TABLE, RUINS SHIFT ALLOCATION! 
+-- YOU CAN'T DELETE SHIFTS !!! DON'T DROP THEM FROM THE TABLE, RUINS SHIFT ALLOCATION! 
 create database rostery;
 use rostery;
 
@@ -31,7 +31,7 @@ CREATE TABLE shift_allocations(
 allocationID INT AUTO_INCREMENT PRIMARY KEY,
 shiftID INT REFERENCES shift_list (shiftID),
 employeeID INT REFERENCES employees (employeeID),
-shiftState ENUM('none','rejected','accepted')
+shiftState ENUM('none','rejected','accepted','completed','upcoming')
 );
 
 INSERT INTO employees VALUES(NULL, 'admin', 'admin1234', 'Admin', 'Account', 0, '+6142345678', '1337 Admin Street', 'manager');

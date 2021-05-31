@@ -1,4 +1,11 @@
-<?php ?>
+<?php
+    session_start();
+
+    // This should be changed to be dynamic!
+    $_SESSION['staffID']="2";
+ 
+
+?>
 
 <!-- Doctype and HTML declarations are from https://www.w3schools.com/tags/tag_doctype.asp-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -16,8 +23,21 @@
 <body>
     <?php include 'nav.php'?>
 
+    <div class="container" style="margin-top:2em;">
+        <div class="jumbotron">
+            <h1 class = "display-4">View upcoming shifts</h1>
+            
+            <p class="lead">Below is a list of all upcoming shifts</p>
+            <hr class="my-4">
+            <p>To accept a shift, click the button labeled "accept". To reject, click the button labeled "reject".</p>
+        </div>
 
 
-
-
+        <div class = "container" id="ushiftTemplateContainer" style="margin-top:1em; padding-bottom:4em; border-bottom: thin gainsboro solid;">
+                <?php
+                    include 'ushift_template.php';
+                ?>        
+        </div>
+        
+    </div>
 </body>

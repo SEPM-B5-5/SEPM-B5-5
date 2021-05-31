@@ -18,7 +18,7 @@
 
     <div class="container" style="margin-top:2em;">
         <div class="jumbotron">
-        <h1 class = "display-4">View shift history</h1>
+        <h1 class = "display-4">View previous shifts</h1>
         
         <p class="lead">Below is a list of all past shift allocations</p>
         <hr class="my-4">
