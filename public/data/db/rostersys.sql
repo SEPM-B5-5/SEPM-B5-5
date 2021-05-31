@@ -21,4 +21,19 @@ CREATE TABLE roster(
 	shiftId INT REFERENCES shifts(shiftsId)
 )
 
+CREATE TABLE notice(
+	noticeId INT PRIMARY KEY,
+	dateSent DATENAME,
+	timeSent TIME,
+	header VARCHAR(255),
+	notification VARCHAR(255)
+)
+
+CREATE TABLE notifs(
+	staffId INT REFERENCES staff(staffId),
+	noticeId INT REFERENCES ntofis(notifsId)
+)
+
 INSERT INTO staff VALUES(0, 'root', 'root', 'John', 'Doe', "manager");
+
+INSERT INTO notice VALUES(0, NULL, NULL, "TitleInit", "NoticeInit")

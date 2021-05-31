@@ -41,7 +41,7 @@
 
 				<tbody>
 					<?php
-						$notifsJson = file_get_contents("../data/notifsHub.json");
+						/* $notifsJson = file_get_contents("../data/notifsHub.json");
 						$notifsJsonDecoded = json_decode($notifsJson, true);
 
 						if (count($notifsJsonDecoded)) {
@@ -49,6 +49,22 @@
 
 							foreach ($notifsJsonDecoded as $keys=>$vals) {
 								echo "<td>". implode("\r\n", $vals) . "</td>";
+							}
+
+							echo "</tr>";
+						} */
+
+						$mysql = mysqli_connect("localhost", "root", "root", "rostersys");
+
+						$query = "SELECT * FROM notifs";
+						$result = mysqli_query($mysql, $query);
+						$row = mysqli_fetch_array($result);
+
+						if (count($row)) {
+							echo "<tr>";
+
+							foreach($row as $keys=>$vals) {
+								echo "<td>" . implode("\r\n", $vals) . "</td>";
 							}
 
 							echo "</tr>";
