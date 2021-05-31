@@ -33,6 +33,8 @@
 				<!-- <button type="submit" class="btn btn-lg btn-success btn-block">Login</button> -->
 				<a href="./php/home.php" class="btn btn-lg btn-success btn-block">Login</a>
 			</form>
+
+			<a href="./php/resetpassword.php" class="btn btn-xs btn-info">Reset Password</a>
 		</div>
 	</div>
 </body>
