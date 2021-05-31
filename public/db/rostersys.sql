@@ -12,9 +12,8 @@ CREATE TABLE staff(
 
 CREATE TABLE shifts(
 	shiftId INT PRIMARY KEY,
-	DAY VARCHAR(255),
-	shiftStart TIME,
-	shiftEnd TIME
+	shiftDays VARCHAR(255),
+	shiftHours VARCHAR(255),
 );
 
 CREATE TABLE roster(

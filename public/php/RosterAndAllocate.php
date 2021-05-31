@@ -114,6 +114,28 @@ $("#remove-shift-button").click(function () {
 <!---->
 <footer></footer>
 </html>
+
+<?php
+// [Code] Attribution: "Oscar" Huu Nghia Le
+$staffName = $_POST['staffMemberName'];
+$daysAvailable = $_POST['allocatedDay'];
+$shiftHrs = $_POST['memberChosenTime'];
+
+//connect to the db
+$sql = mysqli_connect("localhost", "root", "root", "rostersys");
+
+//query
+$q = "INSERT INTO shifts values(null, '$staffName', '$daysAvailable', '$shiftHrs')";
+$result = mysqli_query($sql, $query);
+
+//if there is an error with the query
+if ($result == false) {
+	header("Location:Workshifts.php?status=418");
+} else {
+	header("Location:Workshifts.php?status=200");
+}
+?>
+
 <!-- "Drag and Drop table cell contents". [Accessed on: May 29, 2021]. [online] Available at: https://stackoverflow.com/a/23472898 -->
 <script type="text/javascript"> 
 $(document).ready(function () {
