@@ -22,11 +22,11 @@
 
 <?php
 
-$user = $_SESSION["staffId"];
+$staffId = $_SESSION["staffId"];
 $password = $_POST["password"];
 
 $sql = mysqli_connect("localhost", "root", "root", "rostersys");
-$query = "UPDATE staff SET password = $password where username = $username";
+$query = "UPDATE staff SET password = $password where staffId = $staffId";
 $retval = mysqli_query($sql, $query);
 
 if ($retval == false)
