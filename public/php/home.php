@@ -56,19 +56,21 @@
 
 						$mysql = mysqli_connect("localhost", "root", "root", "rostersys");
 
-						$query = "SELECT * FROM notifs";
+						$query = "SELECT * FROM notice";
 						$result = mysqli_query($mysql, $query);
 						$row = mysqli_fetch_array($result);
 
-						if (count($row)) {
-							echo "<tr>";
+						echo "<tr>";
 
-							foreach($row as $keys=>$vals) {
-								echo "<td>" . implode("\r\n", $vals) . "</td>";
-							}
-
-							echo "</tr>";
+						while ($row) {
+							echo "<td>" . $row["dateSent"] . "</td>" .
+								"<td>" . $row["timeSent"] . "</td>" .
+								"<td>" . $row["header"] . "</td>" .
+								"<td>" . $row["notification"] . "</td>"
+							;
 						}
+
+						echo "</tr>";
 					?>
 				</tbody>
 			</table>
