@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">// JQuery</script>
-
-	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous">// JQuery UI</script>
-<!--Getting Started Bootstrap. [online] Available at: "https://getbootstrap.com/docs/3.4/getting-started/#download". [Accessed on: 19/04/21]-->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<?php include("./php/includes/head.php"); ?>
 	<title>Login</title>
 </head>
 
@@ -22,6 +11,9 @@
 </div>
 
 <body class="container">
+	<?php
+		include("./php/includes/navbar.php");
+	?>
 	<div class="mx-auto">
 		<div class="col-md-4 offset-md-4 text-center">
 			<form class="form-signin">
@@ -42,3 +34,30 @@
 
 <footer></footer>
 </html>
+
+<?php
+
+$username = $_POST["username"];
+$password = $_POST["password"];
+
+$sql = mysqli_connect("localhost", "root", "root", "rostersys");
+
+//query
+$query = "SELECT * FROM staff WHERE username = '$username' AND password = '$password'";
+$result = mysqli_query($sql, $query);
+
+// If a row is returned, that email+password match exists
+// The account is valid
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION['staffId'] = $row['staffId'];
+    $_SESSION['priority'] = $row['priority'];
+
+    // send the user to their calendar (profile is placeholder landing page for now)
+    header("Location:home.php?staffId={$_SESSION['staffId']}");
+} else {
+    // Otherwise, display an error on the login page
+    header("Location:index.php?status=418");
+}
+// [Code] Attribution: Huu Nghia le
+?>

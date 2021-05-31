@@ -1,5 +1,11 @@
 # Documentation
 
+#### [Code] Attribution:
+- "Oscar" Huu Nghia le
+- Oliver Hale
+- Mehedi Hasan Ridoy
+- Daniel Surla
+
 Running NPM Packages:
 To run the application with NPM in the browser using `//localhost:8080`
 	run `live-server` in the root directory which is: "/web"
