@@ -26,6 +26,11 @@
 			<li class="nav-item text-right">
 				<a href= <?php echo "$hostServerUrl/public/php/createaccount.php" ?> class="nav-link">Create Account</a>
 			</li>
+
+			<li class="nav-item text-right">
+				<a href= <?php echo "$hostServerUrl/public/php/resetpassword.php" ?> class="nav-link">Reset Password</a>
+			</li>
+
 			<?php
 				}
 			?>
