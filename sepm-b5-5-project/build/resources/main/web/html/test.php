@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Accept Shift | Staff</title>
+    <title>Test</title>
 </head>
 <body>
 
