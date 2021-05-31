@@ -6,11 +6,32 @@
 	?>
 	<title>New Staff</title>
 </head>
-<body>
+<body class="container">
 	<?php
 		include("./includes/navbar.php");
 	?>
-
+	<div class="mx-auto">
+		<div class="col-md-4 offset-md-4 text-center">
+			<form class="form-signin">
+				<img src="./imgs/image222.png" alt="Custom logo by Daniel Surla" width="64" height="64">
+				<h1 class="h1 mb-3 font-weight-bold">Hello, and Welcome</h1>
+				<label for="staff-member-username" class="sr-only">Username</label>
+				<input type="text" name="username" id="staff-member-username" class="form-control" placeholder="Username" required autofocus>
+				<br>
+				<label for="staff-member-password" class="sr-only">Password</label>
+				<input type="password" name="password" id="staff-member-password" class="form-control" placeholder="Password" required autofocus>
+				<br>
+				<label for="staff-member-firstname">First Name:</label>
+				<input type="text" name="firstname" id="staff-member-firstname" required>
+				<label for="staff-member-lastname">Last Name:</label>
+				<input type="text" name="lastname" id="staff-member-lastname" required>
+				<label for="staff-member-priority">Priority:</label>
+				<input type="number" name="priority" id="staff-member-priority" required>
+				<!-- <button type="submit" class="btn btn-lg btn-success btn-block">Login</button> -->
+				<a href= <?php echo "$hostServerUrl/public/php/home.php" ?> class="btn btn-lg btn-success btn-block">Create</a>
+			</form>
+		</div>
+	</div>
 </body>
 </html>
 
@@ -19,7 +40,7 @@
 $username = $_POST["username"];
 $password = $_POST["password"];
 $lastname = $_POST["firstname"];
-$priority = $_POST["employee"];
+$priority = $_POST["priority"];
 
 $sql = mysqli_connect("localhost", "root", "root", "rostersys");
 

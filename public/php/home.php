@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
 	<?php
-		include("./includes/session.php");
 		include("./includes/head.php");
-		include("./includes/lib.php");
 	?>
 	<title>Home | Board</title>
 </head>
