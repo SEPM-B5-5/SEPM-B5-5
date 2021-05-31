@@ -120,22 +120,19 @@ $("#remove-shift-button").click(function () {
 
 <?php
 // [Code] Attribution: "Oscar" Huu Nghia Le
-$staffName = $_POST['staffMemberName'];
-$daysAvailable = $_POST['allocatedDay'];
-$shiftHrs = $_POST['memberChosenTime'];
-
+$staffId = $_POST["staffId"];
+$shiftId = $_POST["shiftId"];
 //connect to the db
 $sql = mysqli_connect("localhost", "root", "root", "rostersys");
-
 //query
-$q = "INSERT INTO shifts values(null, '$staffName', '$daysAvailable', '$shiftHrs')";
+$query = "INSERT INTO roster values('$staffId', '$shiftId')";
 $result = mysqli_query($sql, $query);
 
 //if there is an error with the query
 if ($result == false) {
-	header("Location:Workshifts.php?status=418");
+	header("Location:RosterAndAllocate.php?status=418");
 } else {
-	header("Location:Workshifts.php?status=200");
+	header("Location:RosterAndAllocate.php?status=200");
 }
 ?>
 

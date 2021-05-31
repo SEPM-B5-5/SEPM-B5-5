@@ -30,9 +30,9 @@ $query = "UPDATE staff SET password = $password where staffId = $staffId";
 $retval = mysqli_query($sql, $query);
 
 if ($retval == false)
-	header("Location:$hostServerUrl/php/resetpassword.php?status=418");
+	header("Location:resetpassword.php?status=418");
 else
-	header("Location:$hostServerUrl/php/resetpassword.php?status=200");
+	header("Location:resetpassword.php?status=200");
 	
 
 

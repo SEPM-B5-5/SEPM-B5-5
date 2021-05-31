@@ -16,9 +16,6 @@
 </div>
 
 <body class="container">
-	<?php
-		include("./php/includes/navbar.php");
-	?>
 	<div class="mx-auto">
 		<div class="col-md-4 offset-md-4 text-center">
 			<form class="form-signin">
@@ -41,7 +38,7 @@
 </html>
 
 <?php
-
+/* 
 $username = $_POST["username"];
 $password = $_POST["password"];
 
@@ -59,9 +56,10 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['priority'] = $row['priority'];
 
     // send the user to their calendar (profile is placeholder landing page for now)
-    header("Location:home.php?staffId={$_SESSION['staffId']}");
+    header("Location:$hostServerUrl/public/php/home.php?staffId={$_SESSION['staffId']}");
 } else {
     // Otherwise, display an error on the login page
     header("Location:index.php?status=418");
 }
+*/
 ?>

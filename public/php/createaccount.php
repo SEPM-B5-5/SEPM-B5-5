@@ -34,7 +34,7 @@
 					<option value="manager">Manager</option>
 				</select>
 				<!-- <button type="submit" class="btn btn-lg btn-success btn-block">Login</button> -->
-				<a href= <?php echo "$hostServerUrl/public/php/home.php" ?> class="btn btn-lg btn-success btn-block">Create</a>
+				<a href="/public/php/home.php" class="btn btn-lg btn-success btn-block">Create</a>
 			</form>
 		</div>
 	</div>
@@ -56,8 +56,8 @@ $result = mysqli_query($sql, $query);
 
 //if there is an error with the query
 if ($result == false) {
-	header("Location:NewStaff.php?status=418");
+	header("Location:createaccount.php?status=418");
 } else {
-	header("Location:NewStaff.php?status=200");
+	header("Location:createaccount.php?status=200");
 }
 ?>

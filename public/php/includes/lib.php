@@ -4,15 +4,14 @@ $rootDir = $_SERVER["HTTP_HOST"];
 $currentFilepath = rtrim(dirname($_SERVER["PHP_SELF"]));
 $hostServerUrl = "http://$rootDir";
 
-const DATABASE_FILEPATH = "$hostServerUrl/public/data/db/rostersys.sql";
-const M_USER = "user";
+$databaseFilepath = "$hostServerUrl/public/data/db/rostersys.sql";
 
 function loggedIn() {
-	return isset($_SESSION[M_USER]);
+	return isset($_SESSION["user"]);
 }
 
 function logout() {
-	unset($SESSION[M_USER]);
+	unset($SESSION["user"]);
 }
 
 ?>
