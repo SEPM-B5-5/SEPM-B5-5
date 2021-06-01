@@ -28,7 +28,7 @@
 
 			<?php } ?>
 			<?php
-				if (loggedIn()) {
+				if (!loggedIn()) {
 			?>
 			
 			<li class="nav-item">

@@ -15,8 +15,10 @@
 	?>
 	<div class="mx-auto">
 		<div class="col-md-4 offset-md-4 text-center">
+			<br>
+			
 			<form class="form-signin">
-				<img src="./imgs/image222.png" alt="Custom logo by Daniel Surla" width="64" height="64">
+				<img src="../imgs/image222.png" alt="Custom logo by Daniel Surla" width="64" height="64">
 				<h1 class="h1 mb-3 font-weight-bold">Hello, and Welcome</h1>
 				<label for="staff-member-username" class="sr-only">Username</label>
 				<input type="text" name="username" id="staff-member-username" class="form-control" placeholder="Username" required autofocus>
@@ -33,31 +35,11 @@
 					<option value="employee">Employee</option>
 					<option value="manager">Manager</option>
 				</select>
+				<br>
 				<!-- <button type="submit" class="btn btn-lg btn-success btn-block">Login</button> -->
-				<a href="/public/php/home.php" class="btn btn-lg btn-success btn-block">Create</a>
+				<a href="/public/php/events/success.php" class="btn btn-lg btn-success btn-block">Create</a>
 			</form>
 		</div>
 	</div>
 </body>
 </html>
-
-<?php
-
-$username = $_POST["username"];
-$password = $_POST["password"];
-$lastname = $_POST["firstname"];
-$priority = $_POST["priority"];
-
-$sql = mysqli_connect("localhost", "root", "root", "rostersys");
-
-//query
-$query = "INSERT INTO staff values(null, '$username', '$password', '$firstname', '$lastname', \"$priority\")";
-$result = mysqli_query($sql, $query);
-
-//if there is an error with the query
-if ($result == false) {
-	header("Location:createaccount.php?status=418");
-} else {
-	header("Location:createaccount.php?status=200");
-}
-?>

@@ -24,6 +24,7 @@
 					<div class="media text-justify pt-3">
 						<h1 class="media-body pb-3 mb-0 large lh-100">
 						<?php // [Code] Attribution: "Oscar" Huu Nghia Le
+							// - Daniel Surla
 							$staffJson = file_get_contents("../data/egProfile.json");
 							$staffDecoded = json_decode($staffJson, true);
 						?>

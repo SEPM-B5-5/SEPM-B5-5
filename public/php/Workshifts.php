@@ -19,7 +19,12 @@
 
 <div class="col-xs-6 col-sm-4">
 	<br>
-	<h2 id="staff-member-name">Tinsley Mortimer</h2>
+	<?php // [Code] Attribution: "Oscar" Huu Nghia Le
+		// - Daniel Surla
+		$staffJson = file_get_contents("../data/egProfile.json");
+		$staffDecoded = json_decode($staffJson, true);
+	?>
+	<h2 id="staff-member-name"><?php echo implode("\r\n", $staffDecoded["nametag"]); ?></h2>
 	<p>This is the Roster Calendar. <br>
 		Input your shift details here.
 	</p>
