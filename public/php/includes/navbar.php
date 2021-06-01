@@ -14,7 +14,7 @@
 				<a href="/public/php/home.php"class="nav-link">Home</a>
 			</li>
 
-			<?php if ($currentFilepath != "/public/php/Workshifts") { ?>
+			<?php if ($rootDir != "/public/php/Workshifts") { ?>
 
 			<li class="nav-item">
 				<a href="/public/php/Workshifts.php"class="nav-link">Roster</a>

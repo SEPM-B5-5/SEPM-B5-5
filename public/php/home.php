@@ -23,7 +23,13 @@
 				<label for="staff-member-name">
 					<div class="media text-justify pt-3">
 						<h1 class="media-body pb-3 mb-0 large lh-100">
-							<strong class="d-block text-dark" id="staff-member-name">John Doe</strong>
+						<?php // [Code] Attribution: "Oscar" Huu Nghia Le
+							$staffJson = file_get_contents("../data/egProfile.json");
+							$staffDecoded = json_decode($staffJson, true);
+						?>
+							<strong class="d-block text-dark" id="staff-member-name">
+								<?php echo implode("\r\n", $staffDecoded["nametag"]); ?>
+							</strong>
 						</h1>
 					</div>
 				</label>
@@ -41,7 +47,7 @@
 
 				<tbody>
 					<?php
-						/* $notifsJson = file_get_contents("../data/notifsHub.json");
+						$notifsJson = file_get_contents("../data/notifsHub.json");
 						$notifsJsonDecoded = json_decode($notifsJson, true);
 
 						if (count($notifsJsonDecoded)) {
@@ -52,25 +58,7 @@
 							}
 
 							echo "</tr>";
-						} */
-
-						$mysql = mysqli_connect("localhost", "root", "root", "rostersys");
-
-						$query = "SELECT * FROM notice";
-						$result = mysqli_query($mysql, $query);
-						$row = mysqli_fetch_array($result);
-
-						echo "<tr>";
-
-						while ($row) {
-							echo "<td>" . $row["dateSent"] . "</td>" .
-								"<td>" . $row["timeSent"] . "</td>" .
-								"<td>" . $row["header"] . "</td>" .
-								"<td>" . $row["notification"] . "</td>"
-							;
 						}
-
-						echo "</tr>";
 					?>
 				</tbody>
 			</table>

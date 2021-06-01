@@ -1,13 +1,13 @@
 <?php
 include("lib.php");
-
+// [Code] Attribution: Daniel Surla
 session_start();
 
 /* if (!isset($_SESSION['staffId'])) {
-	header("Location:$hostServerUrl/public/index.php");
-} */
-
-/* if($_SESSION['priority'] !== 'manager') {
-	header("Location:$hostServerUrl/public/php/home.php?staffId={$_SESSION['staffId']}");
+	ini_set("session.use_trans_id", false);
+	okTransSid(1);
+} else {
+	ini_set("session.use_trans_sid", true);
+	okTransSid(0);
 } */
 ?>
